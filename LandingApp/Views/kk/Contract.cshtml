@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Қоғамдық келісімшарт (оферта)";
+}
+
+<div class="container my-5">
+    <div class="mb-3">
+        <a asp-controller="Home" asp-action="Index" asp-route-culture="kk"
+           class="btn btn-primary rounded-pill d-inline-flex align-items-center custom-back-btn">
+            <i class="bi bi-arrow-left me-2"></i> Басты бетке
+        </a>
+    </div>
+
+    <h1 class="mb-4 text-center">@ViewData["Title"]</h1>
+
+    <div class="border rounded p-4 shadow-sm bg-light">
+        <p>
+            Осы құжат жеке және заңды тұлғаларға (бұдан әрі – «Тапсырыс беруші») байланыс қызметтерін көрсету бойынша ИП «Qasiet» және «Kazakhtelecom» АҚ (бұдан әрі – «Орындаушы») ресми ұсынысы (қоғамдық оферта) болып табылады.
+        </p>
+        <p>
+            Келісімшарттың толық мәтінімен төмендегі сілтеме арқылы таныса аласыз.
+        </p>
+
+        <div class="text-center mt-4">
+            <a href="https://disk.yandex.ru/i/8LQjwfUguBBfoQ" target="_blank"
+               class="btn btn-primary btn-lg rounded-pill">
+                Келісімшартты жүктеу (PDF)
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .custom-back-btn {
+        background-color: #0d6efd; /* Синий фон кнопки */
+        color: #fff; /* Белый текст кнопки */
+        border: none;
+    }
+
+        .custom-back-btn i {
+            color: #0d6efd; /* Синяя стрелка */
+            background-color: #fff; /* Белый кружок за стрелкой (если нужно) */
+            border-radius: 50%;
+            padding: 4px; /* Отступ внутри кружка */
+        }
+
+        .custom-back-btn:hover {
+            background-color: #0b5ed7; /* Темнее при наведении */
+            color: #fff;
+        }
+
+            .custom-back-btn:hover i {
+                color: #fff; /* При наведении стрелка тоже белая */
+                background-color: #0b5ed7;
+            }
+</style>

@@ -1,0 +1,83 @@
+## --- Build results ---
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+artifacts/
+publish/
+dist/
+
+## --- .NET Core / MSBuild ---
+project.lock.json
+project.fragment.lock.json
+*.binlog
+*.BuildLog.*
+*.tlog
+*.dll
+*.exe
+*.pdb
+
+## --- Test & Coverage ---
+[Tt]est[Rr]esult*/
+TestResults/
+*.coverage
+*.coveragexml
+*.VisualState.xml
+nunit-*.xml
+TestResult.xml
+*.trx
+CodeCoverage/
+
+## --- NuGet / Paket ---
+*.nupkg
+*.snupkg
+.nuget/
+.paket/
+paket-files/
+*.nuget.props
+*.nuget.targets
+
+## --- ASP.NET Scaffolding ---
+ScaffoldingReadMe.txt
+
+## --- IDE / Editors ---
+.vs/
+.idea/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## --- Configuration & Secrets ---
+appsettings.*.json
+google-credentials.json
+secrets.json
+.env
+*.pfx
+*.key
+*.crt
+
+## --- Tools / Analysis ---
+.sonar/
+.sonarqube/
+.stylecop/
+
+## --- OS junk ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+## --- Others ---
+~$*
+*~

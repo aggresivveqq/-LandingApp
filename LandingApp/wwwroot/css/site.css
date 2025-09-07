@@ -1,0 +1,2481 @@
+:root {
+    --bs-primary: #007bff;
+    --bs-primary-rgb: 0, 123, 255;
+    --bs-success: #28a745;
+    --bs-info: #17a2b8;
+    --bs-light: #f8f9fa;
+    --bs-dark: #343a40;
+    --bs-body-color: #333d47;
+    --bs-body-bg: #fff;
+    --bs-tariff-card-bg: #fdfdfd;
+    --bs-primary-light: #8A2BE2;
+    --bs-success-light: #007070;
+    --bs-info-light: #A52A2A;
+    --bs-primary-gradient-start: #9932CC;
+    --bs-primary-gradient-end: #DDA0DD;
+    --bs-success-gradient-start: #008888;
+    --bs-success-gradient-end: #CCE0E0;
+    --bs-info-gradient-start: #B22222;
+    --bs-info-gradient-end: #FFDAB9;
+    /* Button gradients - new colors with very light gradients */
+    --btn-primary-gradient: linear-gradient(45deg, #007FFF, #0066CC); /* Slightly lighter to slightly darker blue */
+    --btn-primary-gradient-hover: linear-gradient(45deg, #0055AA, #004080); /* Darker blue to even darker blue */
+
+    --btn-success-gradient: linear-gradient(45deg, #4CAF50, #3D9942); /* Medium green to slightly darker green */
+    --btn-success-gradient-hover: linear-gradient(45deg, #388E3C, #2E7432); /* Darker green to even darker green */
+
+    --btn-info-gradient: linear-gradient(45deg, #5BC0DE, #46B8DA); /* Soft cyan/info to slightly darker */
+    --btn-info-gradient-hover: linear-gradient(45deg, #31B0D8, #259AB3); /* Darker cyan/info to even darker */
+
+    --btn-light-gradient: linear-gradient(45deg, #FDFDFD, #EEEEEE); /* Near white to very light gray */
+    --btn-light-gradient-hover: linear-gradient(45deg, #E0E0E0, #D3D3D3); 
+
+    --navbar-gradient: linear-gradient(90deg, #343a40 0%, #495057 100%);
+    --section-gradient-light: linear-gradient(135deg, #e0f2f7 0%, #d1e7ed 100%);
+    --kazakhtelecom-blue: #004D99;
+    --kazakhtelecom-blue-light: #E0EBF7;
+    --kazakhtelecom-blue-gradient-start: #005CA9;
+    --kazakhtelecom-blue-gradient-end: #007ACC;
+    --kcell-green: #00A950;
+    --kcell-green-light: #EBF7E5;
+    --kcell-green-gradient-start: #00C65A;
+    --kcell-green-gradient-end: #00E065;
+    --altel-purple: #7B3EBA;
+    --altel-purple-light: #F4EEF9;
+    --altel-purple-gradient-start: #8D4CD1;
+    --altel-purple-gradient-end: #A064E7;
+    --card-background-offset-1: #FAFAFA;
+    --card-background-offset-2: #FDFDFA;
+    --card-background-offset-3: #FCFAFA;
+    --whatsapp-green: #25d366;
+    --whatsapp-green-dark: #128c7e;
+    --whatsapp-light-grey: #e0e0e0;
+    --whatsapp-chat-bg: #fff;
+    --btn-whatsapp-gradient: linear-gradient(45deg, #28C76F, #20B066); /* Refined WhatsApp green gradient */
+    --btn-whatsapp-gradient-hover: linear-gradient(45deg, #1BA65B, #148041); /* Darker WhatsApp green on hover */
+    --chat-border-color: #d2d2d2;
+    --text-color-dark: #333;
+    --text-color-light: #fff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+#city-select {
+    padding: 5px 8px;
+    font-size: 14px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    appearance: none;
+    background-color: transparent;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-24.8%200L146.2%20186.6%2030.6%2069.4a17.6%2017.6%200%200%200-24.8%2024.8l130.4%20129%20130.4-129c18.2-18.2%2018.2-47.6%200-65.8z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 12px;
+    cursor: pointer;
+    min-width: 100px;
+    max-width: 150px;
+    /* Цвет текста для ВЫБРАННОЙ опции (когда дропдаун ЗАКРЫТ) */
+    color: white;
+}
+
+    /* Стили для опций внутри выпадающего списка (когда дропдаун ОТКРЫТ) */
+    #city-select option {
+        /* Цвет текста для опций в РАЗВЕРНУТОМ списке */
+        color: black;
+        /* Фон для опций, чтобы текст был читаемым */
+        background-color: white;
+    }
+body {
+    font-family: 'Arial', sans-serif;
+    padding-top: 76px;
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    font-size: 0.8rem; 
+    line-height: 1.6;
+}
+
+.section-spacing {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.my-6 {
+    margin-top: 3rem !important;
+    margin-bottom: 3rem !important;
+}
+.lead-form-kazakhtelecom {
+    background: #f8f9fa; /* мягкий серый фон */
+    padding: 2rem;
+    max-width: 1100px; /* уменьшаем общую ширину */
+    margin: 0 auto;
+    border-radius: 1.5rem; /* округлённые углы */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* мягкая тень */
+}
+
+.lead-form-card {
+    background: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .lead-form-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .lead-form-card h5 {
+        font-size: 1.25rem;
+        color: #333;
+    }
+
+    .lead-form-card .form-control {
+        border-radius: 0.75rem;
+        border: 1px solid #ced4da;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+        .lead-form-card .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.15rem rgba(0, 123, 255, 0.25);
+        }
+
+.btn-submit-lead {
+    background: #007bff;
+    border: none;
+    border-radius: 2rem;
+    padding: 0.75rem;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+    .btn-submit-lead:hover {
+        background: #0056b3;
+        transform: translateY(-2px);
+    }
+
+.section-spacing {
+    padding: 3rem 1rem;
+}
+.navbar {
+    background: var(--navbar-gradient);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.navbar-logo {
+    height: 45px;
+    width: auto;
+}
+
+.navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+        color: #ffffff;
+    }
+
+.btn {
+    border-radius: 9999px !important;
+    font-weight: 600;
+    transition: all 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    padding: 0.2rem 0.6rem; /* очень маленький отступ */
+    font-size: 0.75rem; /* ~12px */
+    border: none;
+    color: white;
+}
+
+
+.btn-whatsapp-circle {
+    background: var(--btn-whatsapp-gradient);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+    .btn-whatsapp-circle:hover {
+        background: var(--btn-whatsapp-gradient-hover);
+        transform: scale(1.08);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+.btn-call-to-action,
+.btn-tariff-selection,
+.btn-submit-lead {
+    background: var(--btn-primary-gradient);
+    padding: 10px 25px;
+    color: white;
+}
+
+    .btn-call-to-action:hover,
+    .btn-tariff-selection:hover,
+    .btn-submit-lead:hover {
+        background: var(--btn-primary-gradient-hover);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+.navbar-contact-item {
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.contact-icon {
+    font-size: 1.8rem;
+    color: var(--bs-primary);
+}
+
+.contact-label {
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1;
+    margin-bottom: 2px;
+}
+
+.contact-number {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 1;
+    transition: color 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+    .navbar {
+        padding-top: 0.4rem;
+        padding-bottom: 0.4rem;
+    }
+
+    .navbar-logo {
+        height: 34px; /* логотип еще чуть меньше */
+        width: auto;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 0.85rem; /* уменьшен с 0.95rem */
+        padding: 0.3rem 0.6rem;
+    }
+
+    .btn {
+        padding: 0.35rem 0.8rem;
+        font-size: 0.8rem; /* уменьшен с 0.85rem */
+        border-radius: 9999px;
+    }
+
+    .btn-whatsapp-circle {
+        width: 46px; /* чуть компактнее */
+        height: 46px;
+        font-size: 1.3rem; /* уменьшен с 1.5rem */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+    }
+
+        .btn-whatsapp-circle i {
+            line-height: 1;
+            margin: 0;
+            padding: 0;
+        }
+
+    .navbar-contact-item {
+        gap: 0.4rem;
+    }
+
+    .contact-icon {
+        font-size: 1.3rem; /* уменьшен с 1.5rem */
+    }
+
+    .contact-label {
+        font-size: 0.6rem; /* уменьшен с 0.65rem */
+        margin-bottom: 0.8px;
+    }
+
+    .contact-number {
+        font-size: 0.85rem; /* уменьшен с 0.9rem */
+    }
+}
+
+
+@media (max-width: 320px) {
+    body {
+        font-size: 0.75rem;
+        line-height: 1.4;
+        padding-top: 60px;
+    }
+
+    .section-spacing {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .my-6 {
+        margin-top: 3rem !important;
+        margin-bottom: 3rem !important;
+    }
+
+    .navbar {
+        padding-top: 0.3rem;
+        padding-bottom: 0.3rem;
+    }
+
+    .navbar-logo {
+        height: 35px;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 0.8rem;
+    }
+
+    .btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.75rem;
+    }
+
+    .btn-whatsapp-circle {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .btn-call-to-action,
+    .btn-tariff-selection,
+    .btn-submit-lead {
+        padding: 8px 16px;
+        font-size: 0.75rem;
+    }
+
+    .contact-icon {
+        font-size: 1.2rem;
+    }
+
+    .contact-label {
+        font-size: 0.6rem;
+    }
+
+    .contact-number {
+        font-size: 0.8rem;
+    }
+
+    #mainCarouselSection {
+        margin-top: 20px;
+    }
+
+        #mainCarouselSection .carousel-item img {
+            height: 35vh;
+            object-fit: cover;
+        }
+
+        #mainCarouselSection .carousel-control-prev-icon::before,
+        #mainCarouselSection .carousel-control-next-icon::before {
+            font-size: 2rem;
+        }
+}
+
+
+
+.contact-number:hover {
+    color: #d1eaff;
+}
+
+#mainCarouselSection .carousel-item img {
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+    display: block;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#mainCarouselSection .carousel-control-prev,
+#mainCarouselSection .carousel-control-next {
+    width: 2%; /* Уменьшил ширину с 3% до 2%. Можете настроить по необходимости. */
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+#mainCarouselSection .carousel-control-prev:hover,
+#mainCarouselSection .carousel-control-next:hover {
+    opacity: 0.8;
+}
+
+#mainCarouselSection .carousel-control-prev-icon,
+#mainCarouselSection .carousel-control-next-icon {
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: none;
+}
+
+#mainCarouselSection .carousel-control-prev-icon::before {
+    content: '\2039';
+    font-size: 2.5rem;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 1;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+#mainCarouselSection .carousel-control-next-icon::before {
+    content: '\203A';
+    font-size: 2.5rem;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 1;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+#mainCarouselSection .carousel-control-prev-icon:hover::before,
+#mainCarouselSection .carousel-control-next-icon:hover::before,
+#mainCarouselSection .carousel-control-prev-icon:focus::before,
+#mainCarouselSection .carousel-control-next-icon:focus::before {
+    color: rgba(0, 0, 0, 1);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+#mainCarouselSection .carousel-control-prev:focus,
+#mainCarouselSection .carousel-control-next:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+@media (max-width: 768px) {
+    #mainCarouselSection .carousel-item img {
+        height: 20vh;
+        object-fit: cover;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+}
+
+.row.row-eq-height {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tariff-card {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 0.75rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-bottom: 1rem;
+    padding: 0.25rem;
+    background-color: var(--bs-tariff-card-bg);
+}
+
+    .tariff-card.tariff-card-primary-style {
+        /* Darker orange from image example */
+        background: linear-gradient(135deg, #FFA500 0%, #ffffff 90%);
+    }
+
+    .tariff-card.tariff-card-success-style {
+        /* Darker green from image example */
+        background: linear-gradient(135deg, #4CAF50 0%, #ffffff 90%);
+    }
+
+    .tariff-card.tariff-card-info-style {
+        /* Darker blue from image example */
+        background: linear-gradient(135deg, #42A5F5 0%, #ffffff 90%);
+    }
+
+    .tariff-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .tariff-card .card-header {
+        border-bottom: 0;
+        border-radius: calc(0.75rem - 1px) calc(0.75rem - 1px) 0 0;
+        padding: 0.6rem 0.8rem;
+        color: white;
+        font-weight: 600;
+    }
+
+        .tariff-card .card-header.bg-primary {
+            background: linear-gradient(135deg, var(--bs-primary-gradient-start) 0%, var(--bs-primary-gradient-end) 100%) !important;
+        }
+
+        .tariff-card .card-header.bg-success {
+            background: linear-gradient(135deg, var(--bs-success-gradient-start) 0%, var(--bs-success-gradient-end) 100%) !important;
+        }
+
+        .tariff-card .card-header.bg-info {
+            background: linear-gradient(135deg, var(--bs-info-gradient-start) 0%, var(--bs-info-gradient-end) 100%) !important;
+        }
+
+    .tariff-card .card-body {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 0.6rem;
+    }
+
+        .tariff-card .card-body h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+
+        .tariff-card .card-body ul {
+            font-size: 0.8rem;
+            color: var(--bs-body-color);
+            flex-grow: 1;
+            padding-left: 0;
+            margin-bottom: 0.6rem;
+            list-style: none;
+        }
+
+            .tariff-card .card-body ul li {
+                padding: 0.25rem 0;
+                font-weight: 500;
+                display: flex;
+                align-items: center;
+            }
+
+                .tariff-card .card-body ul li:not(:last-child) {
+                    border-bottom: 1px dashed rgba(0, 0, 0, 0.05);
+                }
+
+                .tariff-card .card-body ul li i {
+                    color: var(--bs-primary);
+                    margin-right: 0.5rem;
+                    font-size: 1.2em;
+                }
+
+    .tariff-card .card-footer {
+        margin-top: auto;
+    }
+
+.tariff-feature {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.3rem;
+}
+
+    .tariff-feature .feature-icon {
+        font-size: 1.4rem;
+        margin-right: 0.6rem;
+        flex-shrink: 0;
+        color: var(--bs-primary);
+    }
+
+.tariff-card .card-header.bg-primary ~ .card-body .tariff-feature .feature-icon {
+    color: var(--bs-primary);
+}
+
+.tariff-card .card-header.bg-success ~ .card-body .tariff-feature .feature-icon {
+    color: var(--bs-success);
+}
+
+.tariff-card .card-header.bg-info ~ .card-body .tariff-feature .feature-icon {
+    color: var(--bs-info);
+}
+
+.tariff-feature .feature-label {
+    font-weight: 500;
+    margin-right: 0.4rem;
+}
+
+.tariff-feature .feature-value {
+    color: #6c757d;
+}
+
+.btn-group .btn-check + .btn {
+    border-radius: 9999px !important;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.7rem;
+    margin: 0.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+    background: var(--btn-light-gradient);
+    color: var(--bs-dark);
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+    .btn-group .btn-check + .btn:hover {
+        background: var(--btn-light-gradient-hover);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+.btn-group .btn-check:checked + .btn-outline-primary {
+    background: var(--btn-primary-gradient) !important;
+    color: #fff !important;
+    border-color: transparent !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-group .btn-check:checked + .btn-outline-success {
+    background: var(--btn-success-gradient) !important;
+    color: #fff !important;
+    border-color: transparent !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-group .btn-check:checked + .btn-outline-info {
+    background: var(--btn-info-gradient) !important;
+    color: #fff !important;
+    border-color: transparent !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.operator-icon {
+    height: 32px;
+    width: 32px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.operator-name {
+    font-size: 0.7rem;
+    margin-top: 0.1rem;
+    display: block;
+    letter-spacing: 0.2px;
+}
+
+.price-display .old-price {
+    font-size: 0.75rem;
+    margin-right: 0.2rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.price-display .current-price {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 0.5px;
+}
+
+.card-header .price-display small {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.lead-form-kazakhtelecom {
+    background: var(--section-gradient-light);
+    padding: 1rem;
+}
+
+    .lead-form-kazakhtelecom h2 {
+        color: var(--bs-dark);
+        font-size: 2.5rem;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+    }
+
+    .lead-form-kazakhtelecom p.lead {
+        font-size: 1.1rem;
+        color: #495057;
+        line-height: 1.7;
+    }
+
+.lead-form-card {
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+    .lead-form-card h5 {
+        color: var(--bs-dark);
+        font-weight: 600;
+    }
+
+.advantage-card {
+    border: none;
+    border-radius: 0.75rem;
+    background-color: var(--bs-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+    .advantage-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15) !important;
+    }
+
+.advantage-icon-wrapper {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: var(--bs-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 1rem auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.advantage-card .img-fluid {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 15%;
+    box-sizing: border-box;
+    display: block;
+}
+
+.advantage-card h5 {
+    color: var(--bs-dark);
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.advantage-card p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.process-linear {
+    text-align: center;
+}
+
+.process-steps-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 30px 0;
+    flex-wrap: wrap;
+}
+
+.process-step-linear {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 200px;
+}
+
+.process-icon-linear {
+    font-size: 4rem;
+    color: var(--bs-primary);
+    margin-bottom: 15px;
+}
+
+.process-step-linear h4 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--bs-dark);
+    margin-bottom: 0;
+}
+
+.process-arrow {
+    font-size: 2.5rem;
+    color: var(--bs-primary);
+    margin-top: 2rem;
+    display: block;
+}
+
+#contacts ul li {
+    font-weight: 500;
+    color: var(--bs-dark);
+}
+
+    #contacts ul li i {
+        color: var(--bs-primary);
+        min-width: 25px;
+        text-align: center;
+    }
+
+@media (max-width: 320px) {
+    .btn-group .btn-check + .btn {
+        padding: 0.15rem 0.4rem;
+        font-size: 0.6rem;
+        margin: 0.05rem;
+    }
+
+    .operator-icon {
+        height: 24px;
+        width: 24px;
+        margin-right: 4px;
+    }
+
+    .operator-name {
+        font-size: 0.6rem;
+    }
+
+    .price-display .old-price {
+        font-size: 0.6rem;
+    }
+
+    .price-display .current-price {
+        font-size: 1rem;
+    }
+
+    .lead-form-kazakhtelecom {
+        padding: 1rem;
+    }
+
+        .lead-form-kazakhtelecom h2 {
+            font-size: 1.2rem;
+        }
+
+        .lead-form-kazakhtelecom p.lead {
+            font-size: 0.8rem;
+        }
+
+    .advantage-icon-wrapper {
+        width: 70px;
+        height: 70px;
+    }
+
+    .advantage-card h5 {
+        font-size: 1rem;
+    }
+
+    .advantage-card p {
+        font-size: 0.8rem;
+    }
+
+    .process-icon-linear {
+        font-size: 2.5rem;
+    }
+
+    .process-step-linear h4 {
+        font-size: 0.9rem;
+    }
+
+    .process-arrow {
+        font-size: 1.5rem;
+        margin-top: 1rem;
+    }
+
+    #contacts ul li {
+        font-size: 0.8rem;
+    }
+}
+
+.btn-chat-toggler {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1050;
+    background: var(--btn-primary-gradient);
+    border: none;
+    color: var(--text-color-light);
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+    .btn-chat-toggler:hover {
+        background: var(--btn-primary-gradient-hover);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+        transform: translateY(-2px);
+    }
+
+    .btn-chat-toggler i {
+        color: var(--text-color-light);
+    }
+
+.chat-popup {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    z-index: 1060;
+    width: 350px;
+    height: 450px;
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+    border: 1px solid var(--chat-border-color);
+    opacity: 0;
+    transform: scale(0.95);
+    pointer-events: none;
+}
+
+    .chat-popup.show {
+        opacity: 1;
+        transform: scale(1);
+        pointer-events: auto;
+    }
+
+.chat-header {
+    background: var(--whatsapp-green-dark);
+    color: var(--text-color-light);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+    .chat-header h5 {
+        margin-bottom: 0;
+        color: var(--text-color-light);
+        font-size: 1.1rem;
+    }
+
+    .chat-header .btn-close {
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        opacity: 1;
+        transition: all 0.2s ease;
+        border: none;
+        font-size: 1.2rem;
+        cursor: pointer;
+        padding: 0;
+        line-height: 1;
+        color: var(--text-color-dark) !important;
+        filter: none !important;
+    }
+
+        .chat-header .btn-close:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-1px);
+        }
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: var(--whatsapp-chat-bg);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.message {
+    padding: 8px 12px;
+    border-radius: 8px;
+    max-width: 80%;
+    line-height: 1.3;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    word-wrap: break-word;
+    font-size: 0.95rem;
+}
+
+.agent-message {
+    background-color: var(--whatsapp-light-grey);
+    align-self: flex-start;
+    color: var(--text-color-dark);
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.user-message {
+    background-color: var(--whatsapp-green);
+    align-self: flex-end;
+    color: var(--text-color-light);
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.chat-footer {
+    display: flex;
+    padding: 10px 15px;
+    border-top: 1px solid #f0f0f0;
+    background-color: #f0f0f0;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.05);
+    align-items: center;
+}
+
+    .chat-footer input {
+        flex-grow: 1;
+        margin-right: 10px;
+        border-radius: 20px;
+        padding: 8px 15px;
+        border: 1px solid #ccc;
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        color: var(--text-color-dark);
+        font-size: 0.95rem;
+    }
+
+        .chat-footer input:focus {
+            border-color: var(--whatsapp-green-dark);
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 0.15rem rgba(37, 211, 102, 0.25);
+            outline: none;
+        }
+
+    .chat-footer .btn {
+        border-radius: 50% !important;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        font-size: 1.3rem;
+        background: var(--whatsapp-green);
+        color: var(--text-color-light);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        transition: all 0.2s ease;
+        cursor: pointer;
+    }
+
+        .chat-footer .btn:hover {
+            background: var(--whatsapp-green-dark);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-1px);
+        }
+
+
+#formToast {
+    min-width: 250px;
+    background-color: var(--bs-success);
+}
+
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+    .fade-in-section.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+@media (max-width: 767.98px) {
+    body {
+        padding-top: 68px;
+    }
+
+    .navbar-logo {
+        height: 40px;
+    }
+
+    .section-spacing {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .my-6 {
+        margin-top: 4rem !important;
+        margin-bottom: 4rem !important;
+    }
+
+    #mainCarouselSection .carousel-item img {
+        height: 30vh;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    .lead-form-kazakhtelecom {
+        padding: 2rem;
+    }
+
+        .lead-form-kazakhtelecom h2 {
+            font-size: 2rem;
+        }
+
+    .process-steps-container {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .process-arrow {
+        display: none;
+    }
+
+    .process-step-linear {
+        max-width: 80%;
+    }
+
+    .process-icon-linear {
+        font-size: 3.5rem;
+    }
+
+    .process-step-linear h4 {
+        font-size: 1rem;
+    }
+
+    .btn-chat-float {
+        bottom: 15px;
+        right: 15px;
+        width: 55px;
+        height: 55px;
+        font-size: 1.6rem;
+    }
+
+    .chat-popup {
+        width: calc(100% - 30px);
+        right: 15px;
+        bottom: 80px;
+        height: 400px;
+    }
+
+    .navbar-collapse {
+        background: var(--navbar-gradient);
+        padding: 1rem;
+        border-radius: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .navbar-nav .nav-item {
+        text-align: center;
+    }
+
+    .navbar-contact-info {
+        flex-direction: column;
+        align-items: stretch !important;
+        margin-top: 1rem;
+        gap: 0.5rem;
+    }
+
+    .navbar-contact-item {
+        justify-content: center;
+    }
+
+    .btn-call-to-action,
+    .btn-tariff-selection,
+    .btn-submit-lead {
+        width: 100%;
+        margin-top: 0.5rem;
+        border-radius: 9999px;
+    }
+
+    .btn-whatsapp-circle {
+        width: 100%;
+        border-radius: 9999px;
+        margin-top: 0.5rem;
+        height: auto;
+        padding: 8px 0;
+    }
+
+        .btn-whatsapp-circle i {
+            margin-right: 5px;
+        }
+
+    .navbar-collapse .d-flex.align-items-center.ms-auto {
+        flex-direction: column;
+        align-items: stretch !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .btn-whatsapp-circle {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        padding: 0;
+        line-height: 1; /* Убираем лишний вертикальный зазор */
+    }
+
+        .btn-whatsapp-circle i {
+            display: block;
+            line-height: 1;
+            margin: 0;
+            padding: 0;
+        }
+}
+
+
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    #mainCarouselSection .carousel-item img {
+        height: 35vh;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    .process-step-linear {
+        max-width: 45%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    body {
+        padding-top: 76px;
+    }
+
+    #mainCarouselSection .carousel-item img {
+        height: 40vh;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    .lead-form-kazakhtelecom {
+        padding: 3rem;
+    }
+
+        .lead-form-kazakhtelecom h2 {
+            font-size: 2.25rem;
+        }
+
+    .process-steps-container {
+        flex-wrap: wrap;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .process-arrow {
+        font-size: 2.5rem;
+        margin-top: 2rem;
+        display: block;
+    }
+
+    .navbar-collapse {
+        background: var(--navbar-gradient);
+        padding: 1rem;
+        border-radius: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .navbar-contact-info {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center !important;
+        margin-top: 1rem;
+        gap: 1rem;
+    }
+
+    .btn-whatsapp-circle,
+    .btn-call-to-action,
+    .btn-tariff-selection,
+    .btn-submit-lead {
+        width: auto;
+        border-radius: 9999px;
+        margin-top: 0;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-contact-info {
+        flex-direction: row;
+        align-items: center;
+        gap: 0.75rem;
+    }
+}
+
+.lang-btn.active {
+    font-weight: bold;
+}
+
+#tariffsCarousel {
+    position: relative;
+    height: 900px;
+    overflow: hidden;
+}
+
+    #tariffsCarousel .carousel-item .col {
+        flex-shrink: 0;
+    }
+
+    #tariffsCarousel .carousel-control-prev,
+    #tariffsCarousel .carousel-control-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50px; /* Размер контейнера для стрелки */
+        height: 50px; /* Размер контейнера для стрелки */
+        background: transparent; /* Делаем фон прозрачным */
+        box-shadow: none; /* Убираем тень */
+        opacity: 1; /* Устанавливаем полную непрозрачность для контейнера */
+        border: none;
+        border-radius: 50%; /* Сохраняем круглую форму контейнера, если нужно */
+        color: #000; /* Цвет стрелки по умолчанию, можно изменить */
+        z-index: 10;
+        transition: all 0.3s ease;
+    }
+
+    #tariffsCarousel .carousel-control-prev-icon,
+    #tariffsCarousel .carousel-control-next-icon {
+        /* Эти стили влияют на само SVG-изображение стрелки */
+        filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%); /* Делает стрелку черной */
+        /* Или можно установить background-image с другим цветом SVG */
+        /* Пример для белых стрелок: */
+        /* background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e"); */
+        /* Или для более простого управления цветом (если иконка не SVG): */
+        /* color: #fff; /* Если иконка это текстовый символ или Font Awesome */
+    }
+
+    /* Добавляем эффект при наведении, чтобы было видно, что это кнопка */
+    #tariffsCarousel .carousel-control-prev:hover,
+    #tariffsCarousel .carousel-control-next:hover {
+        background: rgba(0, 0, 0, 0.1); /* Слегка затемняем фон при наведении */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Небольшая тень при наведении */
+    }
+
+@media (max-width: 1024px) {
+    #tariffsCarousel {
+        height: auto;
+        overflow: visible;
+    }
+
+        #tariffsCarousel .carousel-control-prev,
+        #tariffsCarousel .carousel-control-next {
+            width: 35px;
+            height: 35px;
+            font-size: 12px;
+        }
+}
+
+
+#faq-section {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    : root
+
+{
+    --bs-primary: #007bff;
+    --bs-primary-rgb: 0, 123, 255;
+    --bs-success: #28a745;
+    --bs-info: #17a2b8;
+    --bs-light: #f8f9fa;
+    --bs-dark: #343a40;
+    --bs-body-color: #333d47;
+    --bs-body-bg: #fff;
+    --bs-tariff-card-bg: #fdfdfd;
+    --bs-primary-light: #F0F8FF;
+    --bs-success-light: #F0FFF0;
+    --bs-info-light: #F0F8FF;
+    --bs-primary-gradient-start: #6a82fb;
+    --bs-primary-gradient-end: #D0E6FF;
+    --bs-success-gradient-start: #a8edea;
+    --bs-success-gradient-end: #D9F7E9;
+    --bs-info-gradient-start: #89f7fe;
+    --bs-info-gradient-end: #D0F7FF;
+    --btn-primary-gradient: linear-gradient(45deg, #007bff, #0056b3);
+    --btn-primary-gradient-hover: linear-gradient(45deg, #0056b3, #003f7f);
+    --btn-success-gradient: linear-gradient(45deg, #28a745, #1e7e34);
+    --btn-success-gradient-hover: linear-gradient(45deg, #1e7e34, #155d28);
+    --btn-info-gradient: linear-gradient(45deg, #7ad3ed, #4ab7d9);
+    --btn-info-gradient-hover: linear-gradient(45deg, #4ab7d9, #2b9acb);
+    --btn-whatsapp-gradient: linear-gradient(45deg, #25d366, #1da851);
+    --btn-whatsapp-gradient-hover: linear-gradient(45deg, #1da851, #14843d);
+    --btn-light-gradient: linear-gradient(45deg, #f8f9fa, #e2e6ea);
+    --btn-light-gradient-hover: linear-gradient(45deg, #e2e6ea, #d6d8db);
+    --navbar-gradient: linear-gradient(90deg, #343a40 0%, #495057 100%);
+    --section-gradient-light: linear-gradient(135deg, #e0f2f7 0%, #d1e7ed 100%);
+    --kazakhtelecom-blue: #004D99;
+    --kazakhtelecom-blue-light: #E0EBF7;
+    --kazakhtelecom-blue-gradient-start: #005CA9;
+    --kazakhtelecom-blue-gradient-end: #007ACC;
+    --kcell-green: #00A950;
+    --kcell-green-light: #EBF7E5;
+    --kcell-green-gradient-start: #00C65A;
+    --kcell-green-gradient-end: #00E065;
+    --altel-purple: #7B3EBA;
+    --altel-purple-light: #F4EEF9;
+    --altel-purple-gradient-start: #8D4CD1;
+    --altel-purple-gradient-end: #A064E7;
+    --card-background-offset-1: #FAFAFA;
+    --card-background-offset-2: #FDFDFA;
+    --card-background-offset-3: #FCFAFA;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    padding-top: 76px;
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.section-spacing {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.my-6 {
+    margin-top: 6rem !important;
+    margin-bottom: 6rem !important;
+}
+
+.navbar {
+    background: var(--navbar-gradient);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.navbar-logo {
+    height: 45px;
+    width: auto;
+}
+
+.navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+        color: #ffffff;
+    }
+
+.btn {
+    border-radius: 9999px !important;
+    font-weight: 600;
+    transition: all 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    padding: 0.5rem 1.25rem;
+    border: none;
+    color: white;
+}
+
+.btn-whatsapp-circle {
+    background: var(--btn-whatsapp-gradient);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+    .btn-whatsapp-circle:hover {
+        background: var(--btn-whatsapp-gradient-hover);
+        transform: scale(1.08);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+.btn-call-to-action,
+.btn-tariff-selection,
+.btn-submit-lead {
+    background: var(--btn-primary-gradient);
+    padding: 10px 25px;
+    color: white;
+}
+
+    .btn-call-to-action:hover,
+    .btn-tariff-selection:hover,
+    .btn-submit-lead:hover {
+        background: var(--btn-primary-gradient-hover);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+.navbar-contact-item {
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.contact-icon {
+    color: var(--bs-primary);
+    font-size: 1.8rem;
+}
+
+.contact-label {
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1;
+    margin-bottom: 2px;
+}
+
+.contact-number {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 1;
+    transition: color 0.3s ease;
+}
+
+    .contact-number:hover {
+        color: #d1eaff;
+    }
+
+#mainCarouselSection .carousel-item img {
+    height: 45vh;
+    object-fit: cover;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#mainCarouselSection .carousel-control-prev,
+#mainCarouselSection .carousel-control-next {
+    width: 5%;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+    #mainCarouselSection .carousel-control-prev:hover,
+    #mainCarouselSection .carousel-control-next:hover {
+        opacity: 0.8;
+    }
+
+#mainCarouselSection .carousel-control-prev-icon,
+#mainCarouselSection .carousel-control-next-icon {
+    background-size: 100%, 100%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+    #mainCarouselSection .carousel-control-prev-icon::before {
+        content: '\2039';
+        font-size: 2rem;
+        color: white;
+        line-height: 1;
+    }
+
+    #mainCarouselSection .carousel-control-next-icon::before {
+        content: '\203A';
+        font-size: 2rem;
+        color: white;
+        line-height: 1;
+    }
+
+    #mainCarouselSection .carousel-control-prev-icon:hover,
+    #mainCarouselSection .carousel-control-next-icon:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+.row.row-eq-height {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tariff-card {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 0.75rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-bottom: 1rem;
+    padding: 0.25rem;
+    background-color: var(--bs-tariff-card-bg);
+}
+
+    .tariff-card.tariff-card-primary-style {
+        background: linear-gradient(135deg, var(--bs-primary-light) 0%, #ffffff 90%);
+    }
+
+    .tariff-card.tariff-card-success-style {
+        background: linear-gradient(135deg, var(--bs-success-light) 0%, #ffffff 90%);
+    }
+
+    .tariff-card.tariff-card-info-style {
+        background: linear-gradient(135deg, var(--bs-info-light) 0%, #ffffff 90%);
+    }
+
+    .tariff-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .tariff-card .card-header {
+        border-bottom: 0;
+        border-radius: calc(0.75rem - 1px) calc(0.75rem - 1px) 0 0;
+        padding: 0.6rem 0.8rem;
+        color: white;
+        font-weight: 600;
+    }
+
+        .tariff-card .card-header.bg-primary {
+            background: linear-gradient(135deg, var(--bs-primary-gradient-start) 0%, var(--bs-primary-gradient-end) 100%) !important;
+        }
+
+        .tariff-card .card-header.bg-success {
+            background: linear-gradient(135deg, var(--bs-success-gradient-start) 0%, var(--bs-success-gradient-end) 100%) !important;
+        }
+
+        .tariff-card .card-header.bg-info {
+            background: linear-gradient(135deg, var(--bs-info-gradient-start) 0%, var(--bs-info-gradient-end) 100%) !important;
+        }
+
+    .tariff-card .card-body {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 0.6rem;
+    }
+
+        .tariff-card .card-body h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+
+        .tariff-card .card-body ul {
+            font-size: 0.8rem;
+            color: var(--bs-body-color);
+            flex-grow: 1;
+            padding-left: 0;
+            margin-bottom: 0.6rem;
+            list-style: none;
+        }
+
+            .tariff-card .card-body ul li {
+                padding: 0.25rem 0;
+                font-weight: 500;
+                display: flex;
+                align-items: center;
+            }
+
+                .tariff-card .card-body ul li:not(:last-child) {
+                    border-bottom: 1px dashed rgba(0, 0, 0, 0.05);
+                }
+
+                .tariff-card .card-body ul li i {
+                    color: var(--bs-primary);
+                    margin-right: 0.5rem;
+                    font-size: 1.2em;
+                }
+
+    .tariff-card .card-footer {
+        margin-top: auto;
+    }
+
+.tariff-feature {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.3rem;
+}
+
+    .tariff-feature .feature-icon {
+        font-size: 1.4rem;
+        margin-right: 0.6rem;
+        flex-shrink: 0;
+        color: var(--bs-primary);
+    }
+
+    .tariff-feature .feature-label {
+        font-weight: 500;
+        margin-right: 0.4rem;
+    }
+
+    .tariff-feature .feature-value {
+        color: #6c757d;
+    }
+
+.btn-group .btn-check + .btn {
+    border-radius: 9999px !important;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.7rem;
+    margin: 0.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+    background: var(--btn-light-gradient);
+    color: var(--bs-dark);
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+    .btn-group .btn-check + .btn:hover {
+        background: var(--btn-light-gradient-hover);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+.btn-group .btn-check:checked + .btn-outline-primary {
+    background: var(--btn-primary-gradient) !important;
+    color: #fff !important;
+    border-color: transparent !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-group .btn-check:checked + .btn-outline-success {
+    background: var(--btn-success-gradient) !important;
+    color: #fff !important;
+    border-color: transparent !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-group .btn-check:checked + .btn-outline-info {
+    background: var(--btn-info-gradient) !important;
+    color: #fff !important;
+    border-color: transparent !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.operator-icon {
+    height: 32px;
+    width: 32px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.operator-name {
+    font-size: 0.7rem;
+    margin-top: 0.1rem;
+    display: block;
+    letter-spacing: 0.2px;
+}
+
+.price-display .old-price {
+    font-size: 0.75rem;
+    margin-right: 0.2rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.price-display .current-price {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 0.5px;
+}
+
+.card-header .price-display small {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.lead-form-kazakhtelecom {
+    background: var(--section-gradient-light);
+    padding: 4rem;
+}
+
+    .lead-form-kazakhtelecom h2 {
+        color: var(--bs-dark);
+        font-size: 2.5rem;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+    }
+
+    .lead-form-kazakhtelecom p.lead {
+        font-size: 1.1rem;
+        color: #495057;
+        line-height: 1.7;
+    }
+
+.lead-form-card {
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+    .lead-form-card h5 {
+        color: var(--bs-dark);
+        font-weight: 600;
+    }
+
+.advantage-card {
+    border: none;
+    border-radius: 0.75rem;
+    background-color: var(--bs-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+    .advantage-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15) !important;
+    }
+
+.advantage-icon-wrapper {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: var(--bs-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 1rem auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.advantage-card .img-fluid {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 15%;
+    box-sizing: border-box;
+    display: block;
+}
+
+.advantage-card h5 {
+    color: var(--bs-dark);
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.advantage-card p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.process-linear {
+    text-align: center;
+}
+
+.process-steps-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 30px 0;
+    flex-wrap: wrap;
+}
+
+.process-step-linear {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 200px;
+}
+
+.process-icon-linear {
+    font-size: 4rem;
+    color: var(--bs-primary);
+    margin-bottom: 15px;
+}
+
+.process-step-linear h4 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--bs-dark);
+    margin-bottom: 0;
+}
+
+.process-arrow {
+    font-size: 2.5rem;
+    color: var(--bs-primary);
+    margin-top: 2rem;
+    display: block;
+}
+
+#contacts ul li {
+    font-weight: 500;
+    color: var(--bs-dark);
+}
+
+    #contacts ul li i {
+        color: var(--bs-primary);
+        min-width: 25px;
+        text-align: center;
+    }
+
+.btn-chat-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1050;
+    background: var(--btn-primary-gradient);
+    border: none;
+    color: white;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 9999px !important;
+    transition: all 0.3s ease;
+}
+
+    .btn-chat-float:hover {
+        background: var(--btn-primary-gradient-hover);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        transform: scale(1.05);
+    }
+
+.chat-popup {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 350px;
+    height: 450px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    flex-direction: column;
+    z-index: 1060;
+    overflow: hidden;
+    transition: transform 0.3s ease-out;
+    transform: translateX(100%);
+    display: flex;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+    .chat-popup.show {
+        transform: translateX(0);
+    }
+
+#aiAgentChat:not(.show) {
+    display: none;
+}
+
+.chat-header {
+    background: linear-gradient(90deg, var(--bs-primary) 0%, #0056b3 100%);
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+    .chat-header h5 {
+        margin-bottom: 0;
+        color: white;
+    }
+
+.chat-body {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #fcfcfc;
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    padding: 10px 15px;
+    border-radius: 18px;
+    margin-bottom: 12px;
+    max-width: 80%;
+    line-height: 1.4;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.agent-message {
+    background-color: #e9e9eb;
+    align-self: flex-start;
+    color: #333;
+    border-bottom-left-radius: 6px;
+}
+
+.user-message {
+    background: linear-gradient(45deg, var(--bs-primary) 0%, #0056b3 100%);
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 6px;
+}
+
+.chat-footer {
+    display: flex;
+    padding: 15px;
+    border-top: 1px solid #f0f0f0;
+    background-color: #fff;
+}
+
+    .chat-footer input {
+        flex-grow: 1;
+        margin-right: 10px;
+        border-radius: 9999px;
+        padding: 8px 15px;
+        border: 1px solid #ddd;
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    .chat-footer .btn {
+        border-radius: 9999px !important;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        font-size: 1.4rem;
+        background: var(--btn-primary-gradient);
+        color: white;
+    }
+
+        .chat-footer .btn:hover {
+            background: var(--btn-primary-gradient-hover);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+#formToast {
+    min-width: 250px;
+    background-color: var(--bs-success);
+}
+
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+    .fade-in-section.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+@media (max-width: 767.98px) {
+    body {
+        padding-top: 68px;
+    }
+
+    .navbar-logo {
+        height: 40px;
+    }
+
+    .section-spacing {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .my-6 {
+        margin-top: 4rem !important;
+        margin-bottom: 4rem !important;
+    }
+
+    #mainCarouselSection .carousel-item img {
+        height: 30vh;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    .lead-form-kazakhtelecom {
+        padding: 2rem;
+    }
+
+        .lead-form-kazakhtelecom h2 {
+            font-size: 2rem;
+        }
+
+    .process-steps-container {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .process-arrow {
+        display: none;
+    }
+
+    .process-step-linear {
+        max-width: 80%;
+    }
+
+    .process-icon-linear {
+        font-size: 3.5rem;
+    }
+
+    .process-step-linear h4 {
+        font-size: 1rem;
+    }
+
+    .btn-chat-float {
+        bottom: 15px;
+        right: 15px;
+        width: 55px;
+        height: 55px;
+        font-size: 1.6rem;
+    }
+
+    .chat-popup {
+        width: calc(100% - 30px);
+        right: 15px;
+        bottom: 80px;
+        height: 400px;
+    }
+
+    .navbar-collapse {
+        background: var(--navbar-gradient);
+        padding: 1rem;
+        border-radius: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .navbar-nav .nav-item {
+        text-align: center;
+    }
+
+    .navbar-contact-info {
+        flex-direction: column;
+        align-items: stretch !important;
+        margin-top: 1rem;
+        gap: 0.5rem;
+    }
+
+    .navbar-contact-item {
+        justify-content: center;
+    }
+
+    .btn-call-to-action,
+    .btn-tariff-selection,
+    .btn-submit-lead {
+        width: 100%;
+        margin-top: 0.5rem;
+        border-radius: 9999px;
+    }
+
+    .btn-whatsapp-circle {
+        width: 100%;
+        border-radius: 9999px;
+        margin-top: 0.5rem;
+        height: auto;
+        padding: 8px 0;
+    }
+
+        .btn-whatsapp-circle i {
+            margin-right: 5px;
+        }
+
+    .navbar-collapse .d-flex.align-items-center.ms-auto {
+        flex-direction: column;
+        align-items: stretch !important;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    #mainCarouselSection .carousel-item img {
+        height: 35vh;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    .process-step-linear {
+        max-width: 45%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    body {
+        padding-top: 76px;
+    }
+
+    #mainCarouselSection .carousel-item img {
+        height: 40vh;
+    }
+
+    .lead-form-kazakhtelecom {
+        padding: 3rem;
+    }
+
+        .lead-form-kazakhtelecom h2 {
+            font-size: 2.25rem;
+        }
+
+    .process-steps-container {
+        flex-wrap: wrap;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .process-arrow {
+        font-size: 2.5rem;
+        margin-top: 2rem;
+        display: block;
+    }
+
+    .navbar-collapse {
+        background: var(--navbar-gradient);
+        padding: 1rem;
+        border-radius: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .navbar-contact-info {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center !important;
+        margin-top: 1rem;
+        gap: 1rem;
+    }
+
+    .btn-whatsapp-circle,
+    .btn-call-to-action,
+    .btn-tariff-selection,
+    .btn-submit-lead {
+        width: auto;
+        border-radius: 9999px;
+        margin-top: 0;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-contact-info {
+        flex-direction: row;
+        align-items: center;
+        gap: 0.75rem;
+    }
+}
+
+.lang-btn.active {
+    font-weight: bold;
+}
+
+
+#faq-section {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+    #faq-section h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #333;
+        font-weight: 700;
+    }
+
+.faq-item {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+    .faq-item:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+.faq-question {
+    font-size: 1.1em;
+    color: var(--bs-primary);
+    cursor: pointer;
+}
+
+#assistant {
+    background-color: #e0f2f7;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+    #assistant .display-5 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #007bff;
+        margin-bottom: 1.5rem;
+    }
+
+    #assistant .lead {
+        font-size: 1.25rem;
+        color: #6c757d;
+        margin-bottom: 3rem;
+    }
+
+    #assistant .p-4 {
+        background-color: #ffffff;
+        border-radius: 0.75rem;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        #assistant .p-4:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.12);
+        }
+
+    #assistant .fs-2 {
+        font-size: 2rem !important;
+        margin-bottom: 1rem;
+    }
+
+    #assistant .text-info {
+        color: #17a2b8 !important;
+    }
+
+    #assistant .text-success {
+        color: #28a745 !important;
+    }
+
+    #assistant .text-warning {
+        color: #ffc107 !important;
+    }
+
+    #assistant .h5 {
+        font-weight: 700;
+        color: #343a40;
+        margin-bottom: 0.5rem;
+    }
+
+    #assistant .text-secondary {
+        color: #6c757d !important;
+        font-size: 0.95rem;
+    }
+
+    #assistant .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        background-image: linear-gradient(to right, #007bff, #0056b3);
+        color: white;
+        padding:
+    }
+
+.filter-tariff-btn:not(.active) {
+    background-color: transparent;
+    color: var(--bs-primary);
+    border: 1px solid var(--bs-primary);
+}
+
+    .filter-tariff-btn:not(.active):hover {
+        background-color: transparent;
+        color: var(--bs-primary);
+        border-color: var(--bs-primary);
+    }
+
+.chat-footer .form-check {
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+.chat-footer .form-check-label a {
+    color: #0d6efd;
+    text-decoration: underline dotted;
+}
+
+    .chat-footer .form-check-label a:hover {
+        color: #0a58ca;
+        text-decoration: underline;
+    }
+
+#sendMessageBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#openChatBtn {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    z-index: 9999 !important; /* Убедитесь, что Z-index достаточно высок */
+    border-radius: 50% !important;
+    width: 60px !important;
+    height: 60px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out !important;
+    background: var(--btn-primary-gradient) !important;
+    border: none !important;
+    color: white !important;
+}
+
+    #openChatBtn:hover {
+        transform: translateY(-3px) !important;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3) !important;
+        background: var(--btn-primary-gradient-hover) !important;
+    }
+
+    /* Если у вас иконка внутри кнопки */
+    #openChatBtn .bi {
+        font-size: 1.8rem !important;
+        color: white !important;
+    }
+
+.chat-privacy {
+    font-size: 0.65rem; /* ещё мельче текст */
+    color: #999; /* чуть светлее */
+    line-height: 1.2; /* уплотнённый интервал */
+}
+
+    .chat-privacy a {
+        color: #999; /* ссылку тоже чуть светлее */
+        text-decoration: none; /* без подчёркивания по умолчанию */
+    }
+
+        .chat-privacy a:hover {
+            color: #ccc; /* светлее при наведении */
+            text-decoration: underline;
+        }
+
+.chat-tip {
+    font-size: 0.75rem;
+    color: #999;
+    text-align: center;
+    margin: 8px 0;
+    font-style: italic;
+}
+
+.agent-message {
+    background: linear-gradient(145deg, #e3f2fd, #bbdefb);
+    color: #0d47a1;
+    align-self: flex-start;
+    border-radius: 16px 16px 16px 0;
+    padding: 10px 14px;
+    margin: 6px 0;
+    font-family: "Segoe UI", sans-serif;
+    white-space: pre-wrap; /* сохраняем пробелы и переносы */
+    overflow-wrap: break-word;
+    max-width: 80%;
+    animation: popIn 0.4s ease-out;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    60% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+@media (min-width: 425px) {
+    /* десктопные стили */
+    body {
+        font-size: 1rem;
+    }
+
+    #mainCarouselSection .carousel-item img {
+        height: 70vh;
+        object-fit: cover;
+    }
+}

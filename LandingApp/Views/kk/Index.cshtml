@@ -1,0 +1,1356 @@
+﻿
+@{
+    ViewData["Title"] = "Қазақтелекомға - қосылу! ";
+    var culture = ViewContext.RouteData.Values["culture"]?.ToString() ?? "ru";
+    var switchToCulture = culture == "ru" ? "kk" : "ru";
+    var switchUrl = Context.Request.Path.ToString().Replace("/" + culture, "/" + switchToCulture);
+    var currentLanguageLabel = culture == "kk" ? "🇰🇿 Қазақша" : "🇷🇺 Русский";
+    var switchToLabel = culture == "ru" ? "🇰🇿 Қазақша" : "🇷🇺 Русский";
+}
+@Html.AntiForgeryToken()
+
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Қазақтелеком ресми Дилер - Интернетті, теледидарды, ұялы байланысты қосу</title>
+    <meta name="description" content="Қазақтелекомның ресми дилері. Тиімді тарифтер бойынша үй интернетін, теледидарды және ұялы байланысты қосу. Өтінімді желіде қалдырыңыз." />
+    <meta name="keywords" content="Казахтелеком, интернет, ТВ, мобильная связь, подключени е, Алматы,Казахстан,Астана,Павлодар,Усть-Каменогорск,Семей, тарифы, GPON, официальный дилер" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="~/img/favicon.ico" asp-append-version="true">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="~/css/site_kk.css" rel="stylesheet" asp-append-version="true" />
+
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <div class="d-flex flex-column">
+                    <a class="navbar-brand d-flex align-items-center" asp-controller="Home" asp-action="Index">
+                        <img src="~/img/logo_1.png" alt="Kazakhtelecom компаниясының логотипі" class="navbar-logo me-2" />
+                    </a>
+                    <div class="d-lg-none">
+                        <a href="tel:+77780080160" class="text-white fw-bold text-decoration-none" style="font-size: 0.95rem;">
+                            <i class="bi bi-telephone-outbound-fill me-1"></i> +7 (778) 008-0160
+                        </a>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center ms-auto">
+                    <a href="https://wa.me/77780080160" class="btn btn-whatsapp-circle me-2 d-lg-none" target="_blank" rel="noopener noreferrer" title="WhatsApp-қа жазу" aria-label="WhatsApp-қа жазу">
+                        <i class="bi bi-whatsapp"></i>
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Навигацияны ауыстыру">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Басты бет</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#tariffs">Тарифтер</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#advantages">Артықшылықтар</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#process">Қосылу процесі</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contacts">Байланыс</a>
+                        </li>
+                        <li class="nav-item d-lg-none mt-3 w-100 text-center">
+                            <a href="#LeadFormSection" class="btn btn-primary btn-call-to-action">
+                                Өтінім қалдыру
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="d-flex align-items-center navbar-contact-info">
+                        <div class="navbar-contact-item me-3 d-none d-lg-flex">
+                            <i class="bi bi-telephone-outbound-fill contact-icon"></i>
+                            <div>
+                                <div class="contact-label">Қосылу үшін</div>
+                                <a href="tel:+77780080160" class="contact-number">+7 (778) 008-0160</a>
+                            </div>
+                        </div>
+
+                        <a href="https://wa.me/77780080160" class="btn btn-whatsapp-circle me-3 d-none d-lg-flex" target="_blank" rel="noopener noreferrer" title="WhatsApp-қа жазу" aria-label="WhatsApp-қа жазу">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+
+                        <a href="#LeadFormSection" class="btn btn-primary btn-call-to-action d-none d-lg-flex">
+                            Өтінім қалдыру
+                        </a>
+                    </div>
+                    <label for="city-select"></label>
+                    <select id="city-select" name="city">
+                        <option value="Алматы">Алматы</option>
+                        <option value="Астана">Астана</option>
+                        <option value="Караганда">Караганда</option>
+                            <option value="Павлодар">Павлодар</option>
+                        <option value="Усть-Каменогорск">Өскемен</option>
+                        <option value="Семей">Семей</option>
+                    </select>
+
+               
+
+                    <div class="dropdown me-3">
+                        <a class="btn btn-outline-light rounded-pill px-3" href="@switchUrl">
+                            @switchToLabel
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+    </header>
+
+    <main>
+        <section id="mainCarouselSection" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="#tariffs" class="scroll-link">
+                        <!-- Десктоп версия -->
+                        <img src="~/img/final2(kz).png" class="d-block w-100 banner-img d-none d-md-block" alt="Рекламный баннер 1" />
+                        <!-- Мобильная версия -->
+                        <img src="~/img/101kz.png" class="d-block w-100 banner-img d-block d-md-none" alt="Рекламный баннер 1 (мобильный)" />
+                    </a>
+                </div>
+              
+                <div class="carousel-item">
+                    <a href="#tariffs" class="scroll-link">
+                        <img src="~/img/final5kk.png" class="d-block w-100 banner-img d-none d-md-block" alt="Рекламный баннер 3" />
+                        <img src="~/img/105kk.png" class="d-block w-100 banner-img d-block d-md-none" alt="Рекламный баннер 3 (мобильный)" />
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="#tariffs" class="scroll-link">
+                        <img src="~/img/1gbannerkz.png" class="d-block w-100 banner-img d-none d-md-block" alt="Рекламный баннер 4" />
+                        <img src="~/img/1gbannermobkz.png" class="d-block w-100 banner-img d-block d-md-none" alt="Рекламный баннер 4 (мобильный)" />
+                    </a>
+                </div>
+            </div>
+
+            <!-- Кнопки навигации -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#mainCarouselSection" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Предыдущий</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#mainCarouselSection" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Следующий</span>
+            </button>
+        </section>
+        <section id="LeadFormSection" class="section-spacing lead-form-kazakhtelecom rounded-3 shadow-lg">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="text-black fw-bold mb-4">«Қазақтелекомға» қосылғыңыз келе ме?</h2>
+                    <p class="lead text-muted mb-4">
+                        Жоғары жылдамдықты интернет және мобильді байланыс бір пакетте — аз төлеп, көп мүмкіндік алыңыз!
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card p-4 shadow-sm lead-form-card">
+                        <h5 class="text-center mb-4 fw-bold">Қосылуға өтінім қалдырыңыз</h5>
+                        <form id="LeadForm" asp-controller="Form" asp-action="Submit" method="post">
+                            <div class="mb-3">
+                                <label for="leadName" class="visually-hidden">Сіздің атыңыз</label>
+                                <input id="leadName" name="Name" placeholder="Атыңызды енгізіңіз" class="form-control"
+                                       required aria-required="true" maxlength="50"
+                                       pattern="[A-Za-zА-Яа-яЁё\s\-]+" title="Атыңызды дұрыс енгізіңіз (тек әріптер, бос орын, сызықшалар)." />
+                                <div class="invalid-feedback">
+                                    Атыңызды енгізіңіз. Тек әріптер, бос орын және сызықшалар рұқсат етіледі.
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="leadPhone" class="visually-hidden">Сіздің телефоныңыз</label>
+                                <input id="leadPhone" type="tel" name="Phone" placeholder="Телефон нөміріңізді енгізіңіз"
+                                       class="form-control" required aria-required="true"
+                                       pattern="\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}" maxlength="18"
+                                       title="+7 (701) 123-45-67 форматында нөмір енгізіңіз" />
+                                <div class="invalid-feedback">
+                                    Телефон нөміріңізді дұрыс енгізіңіз. Сандар, + - () символдары және бос орындар рұқсат етіледі.
+                                </div>
+                            </div>
+
+                            <input type="hidden" id="selectedOperator" name="selectedOperator" value="">
+                            <input type="hidden" name="City" id="leadCity" value="Алматы">
+
+                            <p class="small text-center text-muted mb-4">
+                                Түймені басу арқылы сіз <a asp-controller="Home" asp-action="Privacy" asp-route-culture="kk" class="text-decoration-none">
+                                    жеке деректерді өңдеу саясатымен
+                                </a> келісесіз
+                            </p>
+
+                            <input type="hidden" name="TariffName" id="selectedTariff" value="Тарифсіз өтінім" />
+                            <input type="hidden" name="ContactMethod" id="contactMethod" value="Сайттағы өтінім формасы" />
+
+                            <button type="submit" class="btn btn-primary w-100 btn-submit-lead">Жіберу</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="container">
+            <section id="tariffs" class="section-spacing">
+                <div class="mb-4 text-center">
+                    <button class="btn btn-primary me-2 filter-tariff-btn active" data-filter="all">Барлығы</button>
+                    <button class="btn btn-secondary me-2 filter-tariff-btn" data-filter="internet">Интернет</button>
+                    <button class="btn btn-secondary me-2 filter-tariff-btn" data-filter="tv">ТВ</button>
+                    <button class="btn btn-secondary filter-tariff-btn" data-filter="sim">SIM</button>
+                </div>
+                <div id="tariffsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 d-flex align-items-stretch justify-content-center">
+                                <div class="col">
+                                    <div class="card h-100 shadow-sm tariff-card" data-tariff-base-name="Bereket" data-tariff-tags="internet sim tv">
+                                        <div class="card-header bg-primary text-white position-relative">
+                                            <span class="badge bg-danger position-absolute top-0 end-0 mt-2 me-2">ЖАҢА</span>
+                                            <h4 class="my-0 fw-normal">Bereket 2</h4>
+                                            <div class="price-display mt-2">
+                                                <span class="old-price text-decoration-line-through">бастап <span class="old-price-value">12999</span> ₸</span>
+                                                <span class="current-price" data-base-price="6499" data-no-contract-price="12999" data-contract-old-price="12999">6 499 ₸</span>
+                                                <small class="text-muted">/айына </small>
+                                            </div>
+                                        </div>
+                                        <div class="card-body d-flex flex-column">
+                                            <div class="tariff-feature mb-3">
+                                                <i class="bi bi-shield-check feature-icon"></i>
+                                                <span class="feature-label">Бағаны сақтау кепілдігі</span>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="feature-label mb-2">Келісімшарт мерзімін таңдаңыз</div>
+                                                <div class="btn-group w-100 contract-options" role="group" aria-label="Келісімшарт мерзімі">
+                                                    <input type="radio" class="btn-check" name="contract-bereket" id="contract-bereket-3years" autocomplete="off" value="3 года" checked data-contract-type="contract">
+                                                    <label class="btn btn-outline-primary w-50" for="contract-bereket-3years">3 жыл</label>
+                                                    <input type="radio" class="btn-check" name="contract-bereket" id="contract-bereket-nocontract" autocomplete="off" value="Без контракта" data-contract-type="no-contract">
+                                                    <label class="btn btn-outline-primary w-50" for="contract-bereket-nocontract">Келісімшартсыз</label>
+                                                </div>
+                                            </div>
+                                            <ul class="list-unstyled mt-3 mb-4 flex-grow-1 tariff-details-list">
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-infinity feature-icon"></i>
+                                                    <span class="feature-label">Шектеусіз интернет</span>
+                                                    <span class="feature-value">500 Мб/с дейін</span>
+                                                </li>
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-phone feature-icon"></i>
+                                                    <span class="feature-label">Мобильді байланыс</span>
+                                                </li>
+                                                <li class="ms-4 mb-2">
+                                                    <div class="btn-group w-100 operator-options" role="group" aria-label="Мобильді оператор">
+                                                        <input type="radio" class="btn-check" name="operator-bereket" id="operator-bereket-activ" autocomplete="off" value="activ" checked>
+                                                        <label class="btn btn-outline-primary w-50" for="operator-bereket-activ">
+                                                            <img src="~/img/activ.svg" alt="Activ" class="operator-icon"> activ
+                                                        </label>
+                                                        <input type="radio" class="btn-check" name="operator-bereket" id="operator-bereket-altel" autocomplete="off" value="ALTEL">
+                                                        <label class="btn btn-outline-primary w-50" for="operator-bereket-altel">
+                                                            <img src="~/img/altel.svg" alt="ALTEL" class="operator-icon"> ALTEL
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li class="ms-4 mb-3">
+                                                    <div class="btn-group w-100 sim-options" role="group" aria-label="SIM саны">
+                                                        <input type="radio" class="btn-check" name="sim-bereket" id="sim-bereket-2sim" autocomplete="off" value="2 SIM" checked data-sim-modifier="1">
+                                                        <label class="btn btn-outline-primary w-50" for="sim-bereket-2sim">
+                                                            <i class="bi bi-sim-fill"></i> 2 SIM
+                                                        </label>
+
+                                                    </div>
+                                                </li>
+                                                <li class="tariff-feature ps-4">
+                                                    <span class="feature-label">Интернет</span>
+                                                    <span class="feature-value">60 ГБ</span>
+                                                </li>
+                                                <li class="tariff-feature ps-4">
+                                                    <span class="feature-label">Желі ішіндегі қоңыраулар</span>
+                                                    <span class="feature-value">Шектеусіз</span>
+                                                </li>
+                                                <li class="tariff-feature ps-4">
+                                                    <span class="feature-label">Басқа ұялы операторлар мен қалалық нөмірлерге қоңыраулар</span>
+                                                    <span class="feature-value">250 мин.</span>
+                                                </li>
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-tablet-landscape feature-icon"></i>
+                                                    <span class="feature-label">Гаджеттер үшін 1 SIM</span>
+                                                    <span class="feature-value">5 ГБ</span>
+                                                </li>
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-phone-vibrate feature-icon"></i>
+                                                    <span class="feature-label">TV+ mobile</span>
+                                                    <span class="feature-value">Әрбір SIM-картаға тегін TV+</span>
+                                                </li>
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-tv feature-icon"></i>
+                                                    <span class="feature-label">Теледидар</span>
+                                                    <span class="feature-value">170+ телеарна</span>
+                                                </li>
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-film feature-icon"></i>
+                                                    <span class="feature-label">Онлайн-кинотеатрлар</span>
+                                                    <span class="feature-value">9 онлайн-кинотеатр</span>
+                                                </li>
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-bag-check feature-icon"></i>
+                                                    <span class="feature-label">TV+ жазылымы</span>
+                                                    <span class="feature-value">Мобильді трафикті есепке алмағанда</span>
+                                                </li>
+                                            </ul>
+                                            <button type="button" class="w-100 btn btn-lg btn-primary select-tariff-btn mt-auto" data-bs-toggle="modal" data-bs-target="#leadFormModal">Қосу</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100 shadow-sm tariff-card" data-tariff-base-name="Bereket4" data-tariff-tags="internet sim tv">
+                                        <div class="card-header bg-primary text-white position-relative">
+                                            <span class="badge bg-danger position-absolute top-0 end-0 mt-2 me-2"> ЖАҢА</span>
+                                            <h4 class="my-0 fw-normal">Bereket 4</h4>
+                                            <div class="price-display mt-2">
+                                                <span class="old-price text-decoration-line-through">бастап <span class="old-price-value">16999</span> ₸</span>
+                                                <span class="current-price" data-base-price="8499" data-no-contract-price="16999" data-contract-old-price="12999">8 499 ₸</span>
+                                                <small class="text-muted">/айына </small>
+                                            </div>
+                                        </div>
+                                        <div class="card-body d-flex flex-column">
+                                            <div class="tariff-feature mb-3">
+                                                <i class="bi bi-shield-check feature-icon"></i>
+                                                <span class="feature-label">Бағаны сақтау кепілдігі</span>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="feature-label mb-2">Келісімшарт мерзімін таңдаңыз</div>
+                                                <div class="btn-group w-100 contract-options" role="group" aria-label="Келісімшарт мерзімі">
+                                                    <input type="radio" class="btn-check" name="contract-bereket4" id="contract-bereket4-3years" autocomplete="off" value="3 года" checked data-contract-type="contract">
+                                                    <label class="btn btn-outline-primary w-50" for="contract-bereket4-3years">3 жыл</label>
+                                                    <input type="radio" class="btn-check" name="contract-bereket4" id="contract-bereket4-nocontract" autocomplete="off" value="Без контракта" data-contract-type="no-contract">
+                                                    <label class="btn btn-outline-primary w-50" for="contract-bereket4-nocontract">Келісімшартсыз</label>
+                                                </div>
+                                            </div>
+                                            <ul class="list-unstyled mt-3 mb-4 flex-grow-1 tariff-details-list">
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-infinity feature-icon"></i>
+                                                    <span class="feature-label">Шектеусіз интернет</span>
+                                                    <span class="feature-value">500 Мб/с дейін</span>
+                                                </li>
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-phone feature-icon"></i>
+                                                    <span class="feature-label">Мобильді байланыс</span>
+                                                </li>
+                                                <li class="ms-4 mb-2">
+                                                    <div class="btn-group w-100 operator-options" role="group" aria-label="Мобильді оператор">
+                                                        <input type="radio" class="btn-check" name="operator-bereket4" id="operator-bereket4-activ" autocomplete="off" value="activ" checked>
+                                                        <label class="btn btn-outline-primary w-50" for="operator-bereket4-activ">
+                                                            <img src="~/img/activ.svg" alt="Activ" class="operator-icon"> activ
+                                                        </label>
+                                                        <input type="radio" class="btn-check" name="operator-bereket4" id="operator-bereket4-altel" autocomplete="off" value="ALTEL">
+                                                        <label class="btn btn-outline-primary w-50" for="operator-bereket4-altel">
+                                                            <img src="~/img/altel.svg" alt="ALTEL" class="operator-icon"> ALTEL
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li class="ms-4 mb-3">
+                                                    <div class="btn-group w-100 sim-options" role="group" aria-label="SIM саны">
+                                                        <input type="radio" class="btn-check" name="sim-bereket4" id="sim-bereket4-2sim" autocomplete="off" value="4 SIM" checked data-sim-modifier="1">
+                                                        <label class="btn btn-outline-primary w-50" for="sim-bereket4-2sim">
+                                                            <i class="bi bi-sim-fill"></i> 4 SIM
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li class="tariff-feature ps-4">
+                                                    <span class="feature-label">Интернет</span>
+                                                    <span class="feature-value">60 ГБ</span>
+                                                </li>
+                                                <li class="tariff-feature ps-4">
+                                                    <span class="feature-label">Желі ішіндегі қоңыраулар</span>
+                                                    <span class="feature-value">Шектеусіз</span>
+                                                </li>
+                                                <li class="tariff-feature ps-4">
+                                                    <span class="feature-label">Басқа ұялы операторлар мен қалалық нөмірлерге қоңыраулар</span>
+                                                    <span class="feature-value">250 мин.</span>
+                                                </li>
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-tablet-landscape feature-icon"></i>
+                                                    <span class="feature-label">Гаджеттер үшін 1 SIM</span>
+                                                    <span class="feature-value">5 ГБ</span>
+                                                </li>
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-phone-vibrate feature-icon"></i>
+                                                    <span class="feature-label">TV+ mobile</span>
+                                                    <span class="feature-value">Әрбір SIM-картаға тегін TV+</span>
+                                                </li>
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-tv feature-icon"></i>
+                                                    <span class="feature-label">Теледидар</span>
+                                                    <span class="feature-value">170+ телеарна</span>
+                                                </li>
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-film feature-icon"></i>
+                                                    <span class="feature-label">Онлайн-кинотеатрлар</span>
+                                                    <span class="feature-value">9 онлайн-кинотеатр</span>
+                                                </li>
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-bag-check feature-icon"></i>
+                                                    <span class="feature-label">TV+ жазылымы</span>
+                                                    <span class="feature-value">Мобильді трафикті есепке алмағанда</span>
+                                                </li>
+                                            </ul>
+                                            <button type="button" class="w-100 btn btn-lg btn-primary select-tariff-btn mt-auto" data-bs-toggle="modal" data-bs-target="#leadFormModal">Қосу</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="card h-100 shadow-sm tariff-card" data-tariff-base-name="Keremet Mobile" data-tariff-tags="internet sim">
+                                        <div class="card-header bg-success text-white position-relative">
+                                            <span class="badge bg-danger position-absolute top-0 end-0 mt-2 me-2">ЖАҢА</span>
+                                            <h4 class="my-0 fw-normal">Keremet Mobile</h4>
+                                            <div class="price-display mt-2">
+                                                <span class="old-price text-decoration-line-through">бастап <span class="old-price-value">10999</span> ₸</span>
+                                                <span class="current-price" data-base-price="4999" data-no-contract-price="10999" data-contract-old-price="9999">4 999 ₸</span>
+                                                <small class="text-muted">/айына</small>
+                                            </div>
+                                        </div>
+                                        <div class="card-body d-flex flex-column">
+                                            <div class="tariff-feature mb-3">
+                                                <i class="bi bi-shield-check feature-icon"></i>
+                                                <span class="feature-label">Бағаны сақтау кепілдігі</span>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="feature-label mb-2">Келісімшарт мерзімін таңдаңыз</div>
+                                                <div class="btn-group w-100 contract-options" role="group" aria-label="Келісімшарт мерзімі">
+                                                    <input type="radio" class="btn-check" name="contract-keremet-mobile" id="contract-keremet-mobile-3years" autocomplete="off" value="3 года" checked data-contract-type="contract">
+                                                    <label class="btn btn-outline-success w-50" for="contract-keremet-mobile-3years">3 жыл</label>
+                                                    <input type="radio" class="btn-check" name="contract-keremet-mobile" id="contract-keremet-mobile-nocontract" autocomplete="off" value="Без контракта" data-contract-type="no-contract">
+                                                    <label class="btn btn-outline-success w-50" for="contract-keremet-mobile-nocontract">Келісімшартсыз</label>
+                                                </div>
+                                            </div>
+                                            <ul class="list-unstyled mt-3 mb-4 flex-grow-1 tariff-details-list">
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-infinity feature-icon"></i>
+                                                    <span class="feature-label">Шексіз интернет</span>
+                                                    <span class="feature-value">500 Мб/с дейін</span>
+                                                </li>
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-phone feature-icon"></i>
+                                                    <span class="feature-label">Мобильді байланыс</span>
+                                                </li>
+                                                <li class="ms-4 mb-2">
+                                                    <div class="btn-group w-100 operator-options" role="group" aria-label="Мобильді оператор">
+                                                        <input type="radio" class="btn-check" name="operator-keremet-mobile" id="operator-keremet-mobile-activ" autocomplete="off" value="activ" checked>
+                                                        <label class="btn btn-outline-success w-50" for="operator-keremet-mobile-activ">
+                                                            <img src="~/img/activ.svg" alt="Activ" class="operator-icon"> activ
+                                                        </label>
+                                                        <input type="radio" class="btn-check" name="operator-keremet-mobile" id="operator-keremet-mobile-altel" autocomplete="off" value="ALTEL">
+                                                        <label class="btn btn-outline-success w-50" for="operator-keremet-mobile-altel">
+                                                            <img src="~/img/altel.svg" alt="ALTEL" class="operator-icon"> ALTEL
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li class="tariff-feature ps-4">
+                                                    <span class="feature-label">Интернет</span>
+                                                    <span class="feature-value">60 ГБ</span>
+                                                </li>
+                                                <li class="tariff-feature ps-4">
+                                                    <span class="feature-label">Желі ішіндегі қоңыраулар</span>
+                                                    <span class="feature-value">Шексіз</span>
+                                                </li>
+                                                <li class="tariff-feature ps-4">
+                                                    <span class="feature-label">Басқа ұялы операторлар мен қалалық нөмірлерге қоңыраулар</span>
+                                                    <span class="feature-value">300 мин.</span>
+                                                </li>
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-phone-vibrate feature-icon"></i>
+                                                    <span class="feature-label">TV+ Mobile</span>
+                                                    <span class="feature-value">Әрбір SIM-картаға тегін TV+</span>
+                                                </li>
+                                               
+                                            </ul>
+                                            <button type="button" class="w-100 btn btn-lg btn-success select-tariff-btn mt-auto" data-bs-toggle="modal" data-bs-target="#leadFormModal">Қосу</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm tariff-card" data-tariff-base-name="Keremet TV" data-tariff-tags="internet tv">
+                                <div class="card-header bg-info text-white position-relative">
+                                    <span class="badge bg-danger position-absolute top-0 end-0 mt-2 me-2">ЖАҢА</span>
+                                    <h4 class="my-0 fw-normal">Keremet TV <i class="bi bi-tv-fill"></i></h4>
+                                    <div class="price-display mt-2">
+                                        <span class="old-price text-decoration-line-through">бастап <span class="old-price-value">9999</span> ₸</span>
+                                        <span class="current-price" data-base-price="4499" data-no-contract-price="9999" data-contract-old-price="8999">4 499 ₸</span>
+                                        <small class="text-muted">/айына</small>
+                                    </div>
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <div class="tariff-feature mb-3">
+                                        <i class="bi bi-shield-check feature-icon"></i>
+                                        <span class="feature-label">Бағаны сақтау кепілдігі</span>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="feature-label mb-2">Келісімшарт мерзімін таңдаңыз</div>
+                                        <div class="btn-group w-100 contract-options" role="group" aria-label="Келісімшарт мерзімі">
+                                            <input type="radio" class="btn-check" name="contract-keremet-tv" id="contract-keremet-tv-3years" autocomplete="off" value="3 года" checked data-contract-type="contract">
+                                            <label class="btn btn-outline-info w-50" for="contract-keremet-tv-3years">3 жыл</label>
+                                            <input type="radio" class="btn-check" name="contract-keremet-tv" id="contract-keremet-tv-nocontract" autocomplete="off" value="Без контракта" data-contract-type="no-contract">
+                                            <label class="btn btn-outline-info w-50" for="contract-keremet-tv-nocontract">Келісімшартсыз</label>
+                                        </div>
+                                    </div>
+                                    <ul class="list-unstyled mt-3 mb-4 flex-grow-1 tariff-details-list">
+                                        <li class="tariff-feature">
+                                            <i class="bi bi-infinity feature-icon"></i>
+                                            <span class="feature-label">Шексіз интернет</span>
+                                            <span class="feature-value">300 Мбит/с дейін</span>
+                                        </li>
+                                        <li class="tariff-feature">
+                                            <i class="bi bi-tv feature-icon"></i>
+                                            <span class="feature-label">Теледидар</span>
+                                            <span class="feature-value">170+ телеарна</span>
+                                        </li>
+                                        <li class="tariff-feature">
+                                            <i class="bi bi-film feature-icon"></i>
+                                            <span class="feature-label">Онлайн-кинотеатрлар</span>
+                                            <span class="feature-value">9 онлайн-кинотеатр</span>
+                                        </li>
+                                    </ul>
+                                    <button type="button" class="w-100 btn btn-lg btn-info select-tariff-btn mt-auto" data-bs-toggle="modal" data-bs-target="#leadFormModal">Қосу</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="carousel-item">
+                            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 d-flex align-items-stretch justify-content-center">
+                                <div class="col">
+                                    <div class="card h-100 shadow-sm tariff-card" data-tariff-base-name="Shanyraq TV" data-tariff-tags="internet tv">
+                                        <div class="card-header bg-success text-white position-relative">
+                                            <h4 class="my-0 fw-normal">Shanyraq TV</h4>
+                                            <div class="price-display mt-2">
+                                                <span class="old-price text-decoration-line-through">бастап <span class="old-price-value">6999</span> ₸</span>
+                                                <span class="current-price" data-base-price="3499" data-no-contract-price="6999">3 499 ₸</span>
+                                                <small class="text-muted">/айына</small>
+                                            </div>
+                                        </div>
+                                        <div class="card-body d-flex flex-column">
+                                            <div class="tariff-feature mb-3">
+                                                <i class="bi bi-shield-check feature-icon"></i>
+                                                <span class="feature-label">Бағаны сақтау кепілдігі</span>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="feature-label mb-2">Келісімшарт мерзімін таңдаңыз</div>
+                                                <div class="btn-group w-100 contract-options" role="group" aria-label="Келісімшарт мерзімі">
+                                                    <input type="radio" class="btn-check" name="contract-shanyraq-tv" id="contract-shanyraq-tv-3years" autocomplete="off" value="3 года" checked data-contract-type="contract">
+                                                    <label class="btn btn-outline-success w-50" for="contract-shanyraq-tv-3years">3 жыл</label>
+                                                    <input type="radio" class="btn-check" name="contract-shanyraq-tv" id="contract-shanyraq-tv-nocontract" autocomplete="off" value="Без контракта" data-contract-type="no-contract">
+                                                    <label class="btn btn-outline-success w-50" for="contract-shanyraq-tv-nocontract">Келісімшартсыз</label>
+                                                </div>
+                                            </div>
+                                            <ul class="list-unstyled mt-3 mb-4 flex-grow-1 tariff-details-list">
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-infinity feature-icon"></i>
+                                                    <span class="feature-label">Шексіз интернет</span>
+                                                    <span class="feature-value">8-12 Мбит/с дейін</span>
+                                                </li>
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-tv feature-icon"></i>
+                                                    <span class="feature-label">Теледидар</span>
+                                                    <span class="feature-value">140+ арна, онлайн кинотеатрлар: Амедиатека, Qazaqsha, KINOROOM, Salem, more.tv</span>
+                                                </li>
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-router feature-icon"></i>
+                                                    <span class="feature-label">ADSL-модем</span>
+                                                    <span class="feature-value">240 ₸/ай. ADSL технологиясы болғанда міндетті</span>
+                                                </li>
+                                            </ul>
+                                            <button type="button" class="w-100 btn btn-lg btn-success select-tariff-btn mt-auto" data-bs-toggle="modal" data-bs-target="#leadFormModal">Қосу</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100 shadow-sm tariff-card" data-tariff-base-name="Shanyraq Mobile 1 SIM" data-tariff-tags="internet sim">
+                                        <div class="card-header bg-info text-white position-relative">
+                                            <h4 class="my-0 fw-normal">Shanyraq Mobile 1 SIM</h4>
+                                            <div class="price-display mt-2">
+                                                <span class="old-price text-decoration-line-through">бастап <span class="old-price-value">7999</span> ₸</span>
+                                                <span class="current-price" data-base-price="3999" data-no-contract-price="7999">3 999 ₸</span>
+                                                <small class="text-muted">/айына</small>
+                                            </div>
+                                        </div>
+                                        <div class="card-body d-flex flex-column">
+                                            <div class="tariff-feature mb-3">
+                                                <i class="bi bi-shield-check feature-icon"></i>
+                                                <span class="feature-label">Бағаны сақтау кепілдігі</span>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="feature-label mb-2">Келісімшарт мерзімін таңдаңыз</div>
+                                                <div class="btn-group w-100 contract-options" role="group" aria-label="Келісімшарт мерзімі">
+                                                    <input type="radio" class="btn-check" name="contract-shanyraq-mobile1sim" id="contract-shanyraq-mobile1sim-3years" autocomplete="off" value="3 года" checked data-contract-type="contract">
+                                                    <label class="btn btn-outline-info w-50" for="contract-shanyraq-mobile1sim-3years">3 жыл</label>
+                                                    <input type="radio" class="btn-check" name="contract-shanyraq-mobile1sim" id="contract-shanyraq-mobile1sim-nocontract" autocomplete="off" value="Без контракта" data-contract-type="no-contract">
+                                                    <label class="btn btn-outline-info w-50" for="contract-shanyraq-mobile1sim-nocontract">Келісімшартсыз</label>
+                                                </div>
+                                            </div>
+                                            <ul class="list-unstyled mt-3 mb-4 flex-grow-1 tariff-details-list">
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-infinity feature-icon"></i>
+                                                    <span class="feature-label">Шексіз интернет</span>
+                                                    <span class="feature-value">8-12 Мбит/с дейін</span>
+                                                </li>
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-phone feature-icon"></i>
+                                                    <span class="feature-label">Мобильді байланыс</span>
+                                                </li>
+                                                <li class="ms-4 mb-2">
+                                                    <span class="feature-value">1 SIM Activ, 60 ГБ, желі ішінде 300 мин</span>
+                                                </li>
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-router feature-icon"></i>
+                                                    <span class="feature-label">ADSL-модем</span>
+                                                    <span class="feature-value">240 ₸/айына. ADSL технологиясы болғанда міндетті</span>
+                                                </li>
+                                            </ul>
+                                            <button type="button" class="w-100 btn btn-lg btn-info select-tariff-btn mt-auto" data-bs-toggle="modal" data-bs-target="#leadFormModal">Қосу</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col">
+                                    <div class="card h-100 shadow-sm tariff-card" data-tariff-base-name="Shanyraq Plus 2 SIM" data-tariff-tags="internet tv sim">
+                                        <div class="card-header bg-info text-white position-relative">
+                                            <span class="badge bg-success position-absolute top-0 end-0 mt-2 me-2">Ұсынылады</span>
+                                            <h4 class="my-0 fw-normal">Shanyraq Plus 2 SIM</h4>
+                                            <div class="price-display mt-2">
+                                                <span class="old-price text-decoration-line-through">бастап <span class="old-price-value">10999</span> ₸</span>
+                                                <span class="current-price" data-base-price="5499" data-no-contract-price="10999">5 499 ₸</span>
+                                                <small class="text-muted">/айына </small>
+                                            </div>
+                                        </div>
+                                        <div class="card-body d-flex flex-column">
+                                            <div class="tariff-feature mb-3">
+                                                <i class="bi bi-shield-check feature-icon"></i>
+                                                <span class="feature-label">Бағаны сақтау кепілдігі</span>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="feature-label mb-2">Келісімшарт мерзімін таңдаңыз</div>
+                                                <div class="btn-group w-100 contract-options" role="group" aria-label="Келісімшарт мерзімі">
+                                                    <input type="radio" class="btn-check" name="contract-shanyraq-plus2sim" id="contract-shanyraq-plus2sim-3years" autocomplete="off" value="3 года" checked data-contract-type="contract">
+                                                    <label class="btn btn-outline-info w-50" for="contract-shanyraq-plus2sim-3years">3 жыл</label>
+                                                    <input type="radio" class="btn-check" name="contract-shanyraq-plus2sim" id="contract-shanyraq-plus2sim-nocontract" autocomplete="off" value="Без контракта" data-contract-type="no-contract">
+                                                    <label class="btn btn-outline-info w-50" for="contract-shanyraq-plus2sim-nocontract">Келісімшартсыз</label>
+                                                </div>
+                                            </div>
+                                            <ul class="list-unstyled mt-3 mb-4 flex-grow-1 tariff-details-list">
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-infinity feature-icon"></i>
+                                                    <span class="feature-label">Шексіз интернет</span>
+                                                    <span class="feature-value">8-12 Мбит/с дейін</span>
+                                                </li>
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-tv feature-icon"></i>
+                                                    <span class="feature-label">Теледидар</span>
+                                                    <span class="feature-value">170+ арна, онлайн кинотеатрлар: Амедиатека, Qazaqsha, KINOROOM, Salem, more.tv</span>
+                                                </li>
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-phone feature-icon"></i>
+                                                    <span class="feature-label">Мобильді байланыс</span>
+                                                </li>
+                                                <li class="ms-4 mb-2">
+                                                    <span class="feature-value">2 SIM Activ, 40 ГБ, желі ішінде 250 мин</span>
+                                                </li>
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-router feature-icon"></i>
+                                                    <span class="feature-value">ADSL-модем</span>
+                                                    <span class="feature-value">240 ₸/айына. ADSL технологиясы болғанда міндетті</span>
+                                                </li>
+                                            </ul>
+                                            <button type="button" class="w-100 btn btn-lg btn-info select-tariff-btn mt-auto" data-bs-toggle="modal" data-bs-target="#leadFormModal">Қосу</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 d-flex align-items-stretch justify-content-center">
+                                <div class="col">
+                                    <div class="card h-100 shadow-sm tariff-card" data-tariff-base-name="Internet 1000"
+                                         data-tariff-tags="internet">
+                                        <div class="card-header bg-info text-white position-relative">
+                                            <h4 class="my-0 fw-normal">Интернет 100</h4>
+                                            <div class="price-display mt-2">
+                                                <span class="current-price" data-base-price="5599">5599 ₸</span>
+                                                <small class="text-muted">/айына</small>
+                                            </div>
+                                        </div>
+                                        <div class="card-body d-flex flex-column">
+                                            <ul class="list-unstyled mt-3 mb-4 flex-grow-1 tariff-details-list">
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-infinity feature-icon"></i>
+                                                    <span class="feature-label">Шексіз интернет</span>
+                                                    <span class="feature-value">100 Мбит/с дейін</span>
+                                                </li>
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-wifi feature-icon"></i>
+                                                    <span class="feature-label">WiFi-роутер</span>
+                                                    <span class="feature-value">400 ₸/айына. GPON технологиясы кезінде міндетті</span>
+                                                </li>
+                                            </ul>
+                                            <button type="button" class="w-100 btn btn-lg btn-info select-tariff-btn mt-auto"
+                                                    data-bs-toggle="modal" data-bs-target="#leadFormModal">
+                                                Қосу
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm tariff-card" data-tariff-base-name="Internet 200" data-tariff-tags="internet">
+                                <div class="card-header bg-success text-white position-relative">
+                                    <span class="badge bg-success position-absolute top-0 end-0 mt-2 me-2">Ұсынылады</span>
+                                    <h4 class="my-0 fw-normal">Интернет 200</h4>
+                                    <div class="price-display mt-2">
+                                        <span class="old-price text-decoration-line-through">
+                                            бастап <span class="old-price-value">7999</span>
+                                            ₸
+                                        </span>
+                                        <span class="current-price" data-base-price="6999" data-no-contract-price="7999">6 999 ₸</span>
+                                        <small class="text-muted">/айына</small>
+                                    </div>
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <div class="tariff-feature mb-3">
+                                        <i class="bi bi-shield-check feature-icon"></i>
+                                        <span class="feature-label">Бағаны сақтау кепілдігі</span>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="feature-label mb-2">Келісімшарт мерзімін таңдаңыз</div>
+                                        <div class="btn-group w-100 contract-options" role="group" aria-label="Срок контракта">
+                                            <input type="radio" class="btn-check" name="contract-internet200" id="contract-internet200-1year"
+                                                   autocomplete="off" value="1 год" checked data-contract-type="contract">
+                                            <label class="btn btn-outline-success w-50" for="contract-internet200-1year">1 жыл</label>
+                                            <input type="radio" class="btn-check" name="contract-internet200"
+                                                   id="contract-internet200-nocontract" autocomplete="off" value="Без контракта"
+                                                   data-contract-type="no-contract">
+                                            <label class="btn btn-outline-success w-50" for="contract-internet200-nocontract">Келісімшартсыз</label>
+                                        </div>
+                                    </div>
+                                    <ul class="list-unstyled mt-3 mb-4 flex-grow-1 tariff-details-list">
+                                        <li class="tariff-feature">
+                                            <i class="bi bi-infinity feature-icon"></i>
+                                            <span class="feature-label">Шексіз интернет</span>
+                                            <span class="feature-value">200 Мбит/с дейін</span>
+                                        </li>
+                                        <li class="tariff-feature">
+                                            <i class="bi bi-wifi feature-icon"></i>
+                                            <span class="feature-label">WiFi-роутер</span>
+                                            <span class="feature-value">400 ₸/айына. GPON технологиясы кезінде міндетті</span>
+                                        </li>
+                                    </ul>
+                                    <button type="button" class="w-100 btn btn-lg btn-success select-tariff-btn mt-auto"
+                                            data-bs-toggle="modal" data-bs-target="#leadFormModal">
+                                        Қосу
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm tariff-card" data-tariff-base-name="Internet 500" data-tariff-tags="internet">
+                                <div class="card-header bg-info text-white position-relative">
+                                    <h4 class="my-0 fw-normal">Интернет 500</h4>
+                                    <div class="price-display mt-2">
+                                        <span class="old-price text-decoration-line-through">
+                                            бастап <span class="old-price-value">9999</span>
+                                            ₸
+                                        </span>
+                                        <span class="current-price" data-base-price="8999" data-no-contract-price="9999">8 999 ₸</span>
+                                        <small class="text-muted">/айына</small>
+                                    </div>
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <div class="tariff-feature mb-3">
+                                        <i class="bi bi-shield-check feature-icon"></i>
+                                        <span class="feature-label">Бағаны сақтау кепілдігі</span>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="feature-label mb-2">Келісімшарт мерзімін таңдаңыз</div>
+                                        <div class="btn-group w-100 contract-options" role="group" aria-label="Срок контракта">
+                                            <input type="radio" class="btn-check" name="contract-internet500" id="contract-internet500-1year"
+                                                   autocomplete="off" value="1 год" checked data-contract-type="contract">
+                                            <label class="btn btn-outline-info w-50" for="contract-internet500-1year">1 жыл</label>
+                                            <input type="radio" class="btn-check" name="contract-internet500"
+                                                   id="contract-internet500-nocontract" autocomplete="off" value="Без контракта"
+                                                   data-contract-type="no-contract">
+                                            <label class="btn btn-outline-info w-50" for="contract-internet500-nocontract">Келісімшартсыз</label>
+                                        </div>
+                                    </div>
+                                    <ul class="list-unstyled mt-3 mb-4 flex-grow-1 tariff-details-list">
+                                        <li class="tariff-feature">
+                                            <i class="bi bi-infinity feature-icon"></i>
+                                            <span class="feature-label">Шексіз интернет</span>
+                                            <span class="feature-value">500 Мбит/с дейін</span>
+                                        </li>
+                                        <li class="tariff-feature">
+                                            <i class="bi bi-wifi feature-icon"></i>
+                                            <span class="feature-label">WiFi-роутер</span>
+                                            <span class="feature-value">400 ₸/айына. GPON технологиясы кезінде міндетті</span>
+                                        </li>
+                                    </ul>
+                                    <button type="button" class="w-100 btn btn-lg btn-info select-tariff-btn mt-auto"
+                                            data-bs-toggle="modal" data-bs-target="#leadFormModal">
+                                        Қосу
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="carousel-item">
+                            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 d-flex align-items-stretch justify-content-center">
+                                <div class="col">
+                                    <div class="card h-100 shadow-sm tariff-card" data-tariff-base-name="Startovyy ADSL + Telefon"
+                                         data-tariff-tags="internet">
+                                        <div class="card-header bg-info text-white position-relative">
+                                            <h4 class="my-0 fw-normal">Бастапқы ADSL + Телефон</h4>
+                                            <div class="price-display mt-2">
+                                                <span class="old-price text-decoration-line-through">
+                                                    бастап <span class="old-price-value">4599</span>
+                                                    ₸
+                                                </span>
+                                                <span class="current-price" data-base-price="3999" data-no-contract-price="4599">3 999 ₸</span>
+                                                <small class="text-muted">/айына</small>
+                                            </div>
+                                        </div>
+                                        <div class="card-body d-flex flex-column">
+                                            <div class="tariff-feature mb-3">
+                                                <i class="bi bi-shield-check feature-icon"></i>
+                                                <span class="feature-label">Бағаны сақтау кепілдігі</span>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="feature-label mb-2">Келісімшарт мерзімін таңдаңыз</div>
+                                                <div class="btn-group w-100 contract-options" role="group" aria-label="Срок контракта">
+                                                    <input type="radio" class="btn-check" name="contract-startovyy-adsl"
+                                                           id="contract-startovyy-adsl-1year" autocomplete="off" value="1 год" checked
+                                                           data-contract-type="contract">
+                                                    <label class="btn btn-outline-info w-50" for="contract-startovyy-adsl-1year">1 жыл</label>
+                                                    <input type="radio" class="btn-check" name="contract-startovyy-adsl"
+                                                           id="contract-startovyy-adsl-nocontract" autocomplete="off" value="Без контракта"
+                                                           data-contract-type="no-contract">
+                                                    <label class="btn btn-outline-info w-50" for="contract-startovyy-adsl-nocontract">Келісімшартсыз</label>
+                                                </div>
+                                            </div>
+                                            <ul class="list-unstyled mt-3 mb-4 flex-grow-1 tariff-details-list">
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-infinity feature-icon"></i>
+                                                    <span class="feature-label">Шексіз интернет</span>
+                                                    <span class="feature-value">8-12 Мбит/с дейін</span>
+                                                </li>
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-phone feature-icon"></i>
+                                                    <span class="feature-label">Телефон</span>
+                                                </li>
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-router feature-icon"></i>
+                                                    <span class="feature-label">ADSL-модем</span>
+                                                    <span class="feature-value">240 ₸/айына.</span>
+                                                </li>
+                                            </ul>
+                                            <button type="button" class="w-100 btn btn-lg btn-info select-tariff-btn mt-auto"
+                                                    data-bs-toggle="modal" data-bs-target="#leadFormModal">
+                                                Қосу
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                       
+                        <div class="carousel-item active">
+                            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 d-flex align-items-stretch justify-content-center">
+                                <div class="col">
+                                    <div class="card h-100 shadow-sm tariff-card" data-tariff-base-name="Интернет 1000" data-tariff-tags="internet">
+                                        <div class="card-header bg-success text-white position-relative">
+                                            <h4 class="my-0 fw-normal">Интернет 1000</h4>
+                                            <div class="price-display mt-2">
+                                                <span class="current-price" data-base-price="19999">19 999 ₸</span>
+                                                <small class="text-muted">/айына</small>
+                                            </div>
+                                            <span class="badge bg-primary position-absolute top-0 end-0 mt-2 me-2">Ең жылдам</span>
+                                        </div>
+                                        <div class="card-body d-flex flex-column">
+                                            <ul class="list-unstyled mt-3 mb-4 flex-grow-1 tariff-details-list">
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-globe feature-icon"></i>
+                                                    <span class="feature-label">Интернет</span>
+                                                    <span class="feature-value">1000 Мбит/с дейін. Шексіз</span>
+                                                </li>
+                                                <li class="tariff-feature">
+                                                    <i class="bi bi-wifi feature-icon"></i>
+                                                    <span class="feature-label">WiFi-роутер</span>
+                                                    <span class="feature-value">400 ₸/айына. GPON технологиясы кезінде міндетті</span>
+                                                </li>
+                                            </ul>
+                                            <button type="button" class="w-100 btn btn-lg btn-success select-tariff-btn mt-auto" data-bs-toggle="modal" data-bs-target="#leadFormModal">Қосылу</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#tariffsCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Алдыңғы</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#tariffsCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Келесі</span>
+                    </button>
+                    <div class="carousel-indicators-container mt-3">
+                        <button type="button" data-bs-target="#tariffsCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+                                aria-label="Слайд 1"></button>
+                        <button type="button" data-bs-target="#tariffsCarousel" data-bs-slide-to="1" aria-label="Слайд 2"></button>
+                        <button type="button" data-bs-target="#tariffsCarousel" data-bs-slide-to="2" aria-label="Слайд 3"></button>
+                        <button type="button" data-bs-target="#tariffsCarousel" data-bs-slide-to="3" aria-label="Слайд 4"></button>
+                    </div>
+            </section>
+            <section id="assistant" class="py-5 bg-light">
+                <div class="container">
+                    <div class="row align-items-center justify-content-center text-center">
+                        <div class="col-lg-8">
+                            <h2 class="display-5 fw-bold mb-4 text-primary">Тарифтер бойынша Сіздің Жеке Көмекшіңіз</h2>
+                            <p class="lead mb-5 text-muted">
+                                Оншаған ұсыныстарды салыстыруға уақытты жоғалтпаңыз! Біздің ақылды онлайн-көмекшіміз сіздің барлық
+                                тілектеріңізді – қажетті интернет көлемінен бастап, минуттар санына және қосымша қызметтерге дейін
+                                ескере отырып, тамаша тарифті таңдап береді.
+                            </p>
+
+                            <div class="row g-4 mb-5">
+                                <div class="col-md-4">
+                                    <div class="p-4 border rounded-3 bg-white shadow-sm h-100">
+                                        <i class="bi bi-clock-history fs-2 text-info mb-3"></i>
+                                        <h5 class="fw-bold text-dark">Уақытты үнемдеу</h5>
+                                        <p class="text-secondary mb-0">Артық іздеулер мен салыстыруларсыз жылдам таңдау.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="p-4 border rounded-3 bg-white shadow-sm h-100">
+                                        <i class="bi bi-person-check fs-2 text-success mb-3"></i>
+                                        <h5 class="fw-bold text-dark">Жеке тәсіл</h5>
+                                        <p class="text-secondary mb-0">Сіздің қажеттіліктеріңізге толық сәйкес келетін тарифтер.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="p-4 border rounded-3 bg-white shadow-sm h-100">
+                                        <i class="bi bi-hand-thumbs-up fs-2 text-warning mb-3"></i>
+                                        <h5 class="fw-bold text-dark">Қарапайымдылық және Ыңғайлылық</h5>
+                                        <p class="text-secondary mb-0">Өтінім қалдырыңыз, біз сізбен өзіміз байланысамыз.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-grid gap-3 col-md-8 mx-auto">
+                                <button class="btn btn-primary btn-lg py-3 shadow-lg" id="openChatBtn1">
+                                    <i class="bi bi-robot me-2"></i> Виртуалды кеңесші арқылы онлайн өтінім
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <hr class="my-6">
+
+            <section id="advantages" class="section-spacing">
+                <h2 class="text-center mb-5">Біздің артықшылықтарымыз</h2>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="advantage-card text-center p-4">
+                            <div class="advantage-icon-wrapper">
+                                <img src="~/img/coverage.png" alt="Иконка: Кең қамту" class="img-fluid" loading="lazy" />
+                            </div>
+                            <h5 class="mt-3 mb-2">Кең қамту</h5>
+                            <p class="text-muted">Қаланың кез келген нүктесінде біздің қызметтерімізге қол жеткізу.</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="advantage-card text-center p-4">
+                            <div class="advantage-icon-wrapper">
+                                <img src="~/img/discount.png" alt="Иконка: Тиімді жеңілдіктер" class="img-fluid" loading="lazy" />
+                            </div>
+                            <h5 class="mt-3 mb-2">Тиімді жеңілдіктер</h5>
+                            <p class="text-muted">Тұрақты акциялар мен арнайы ұсыныстар.</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="advantage-card text-center p-4">
+                            <div class="advantage-icon-wrapper">
+                                <img src="~/img/flexible.png" alt="Иконка: Икемді тарифтер" class="img-fluid" loading="lazy" />
+                            </div>
+                            <h5 class="mt-3 mb-2">Икемді тарифтер</h5>
+                            <p class="text-muted">Сіздің қажеттіліктеріңізге бейімделген жоспарлар.</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="advantage-card text-center p-4">
+                            <div class="advantage-icon-wrapper">
+                                <img src="~/img/fulltime.png" alt="Иконка: Тәулік бойы қолдау" class="img-fluid" loading="lazy" />
+                            </div>
+                            <h5 class="mt-3 mb-2">Тәулік бойы қолдау</h5>
+                            <p class="text-muted">Ии ассистенттен 24/7 көмек.</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="advantage-card text-center p-4">
+                            <div class="advantage-icon-wrapper">
+                                <img src="~/img/safety.png" alt="Иконка: Сенімділік және қауіпсіздік" class="img-fluid" loading="lazy" />
+                            </div>
+                            <h5 class="mt-3 mb-2">Сенімділік және қауіпсіздік</h5>
+                            <p class="text-muted">Сіздің деректеріңіз сенімді қорғауда.</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="advantage-card text-center p-4">
+                            <div class="advantage-icon-wrapper">
+                                <img src="~/img/speed.png" alt="Иконка: Жоғары жылдамдық" class="img-fluid" loading="lazy" />
+                            </div>
+                            <h5 class="mt-3 mb-2">Жоғары жылдамдық</h5>
+                            <p class="text-muted">Жедел қол жеткізу және деректерді жылдам өңдеу.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+           
+            <hr class="my-6">
+
+            <section id="process" class="section-spacing text-center process-linear">
+                <h2 class="mb-5">Бұл қалай жұмыс істейді?</h2>
+                <div class="process-steps-container">
+                    <div class="process-step-linear">
+                        <i class="bi bi-envelope-fill process-icon-linear" aria-hidden="true"></i>
+                        <h4>Сіз сайтта өтінім қалдырасыз</h4>
+                    </div>
+                    <div class="process-arrow d-none d-md-block"><i class="bi bi-arrow-right" aria-hidden="true"></i></div>
+                    <div class="process-arrow d-block d-md-none"><i class="bi bi-arrow-down" aria-hidden="true"></i></div>
+
+                    <div class="process-step-linear">
+                        <i class="bi bi-headset process-icon-linear" aria-hidden="true"></i>
+                        <h4>Біздің маман сізбен байланысады</h4>
+                    </div>
+                    <div class="process-arrow d-none d-md-block"><i class="bi bi-arrow-right" aria-hidden="true"></i></div>
+                    <div class="process-arrow d-block d-md-none"><i class="bi bi-arrow-down" aria-hidden="true"></i></div>
+
+                    <div class="process-step-linear">
+                        <i class="bi bi-wifi process-icon-linear" aria-hidden="true"></i>
+                        <h4>Сізге тиімді тарифті таңдаймыз</h4>
+                    </div>
+                    <div class="process-arrow d-none d-md-block"><i class="bi bi-arrow-right" aria-hidden="true"></i></div>
+                    <div class="process-arrow d-block d-md-none"><i class="bi bi-arrow-down" aria-hidden="true"></i></div>
+
+                    <div class="process-step-linear">
+                        <i class="bi bi-truck process-icon-linear" aria-hidden="true"></i>
+                        <h4>Сізге қосу үшін техник келеді</h4>
+                    </div>
+                </div>
+            </section>
+            <div class="container my-5">
+                <h2 class="text-center mb-4">Жиі қойылатын сұрақтар</h2>
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                Өтінімнен кейін интернет қаншалықты тез қосылады?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Әдетте интернетті қосу өтініміңізді өңдегеннен және барлық деректерді растағаннан кейін 1-2 жұмыс күні ішінде жүзеге асады. Біз сізге ыңғайлы болу үшін барынша жылдам орнатуды қамтамасыз етуге тырысамыз.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingSeven">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                Егер шұғыл қажет болса, қосылуды жеделдетуге бола ма?
+                            </button>
+                        </h2>
+                        <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Егер сізге шұғыл қосылу қажет болса, жедел қосылуды сұрау үшін кері қоңырауға өтінім қалдыра аласыз немесе бізге телефон арқылы хабарласа аласыз. Техникалық мүмкіндік болған жағдайда, біз интернетті өтінім рәсімделген күні қоса аламыз.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTen">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                                Қызметтерді қосу құны қандай?
+                            </button>
+                        </h2>
+                        <div id="collapseTen" class="accordion-collapse collapse" aria-labelledby="headingTen" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Пәтерге қосылу мүлдем тегін. Кеңсеге немесе жеке үйге қосылу құны жеке есептеледі.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingEleven">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+                                "Қазақтелекомға" қосылуға қалай өтінім беруге болады?
+                            </button>
+                        </h2>
+                        <div id="collapseEleven" class="accordion-collapse collapse" aria-labelledby="headingEleven" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Сіз "Қазақтелеком" провайдерінен интернетті қосудың техникалық мүмкіндігі туралы өз мекенжайыңыз бойынша тікелей сайттан біле аласыз. Содан кейін қолайлы тарифтік жоспарларды таңдап, таңдауыңызды анықтаңыз және "Қосу" батырмасын басыңыз. Біздің менеджер сізбен байланысып, қосылу егжей-тегжейін нақтылап, өтініміңізді растауы үшін жеке деректеріңізді толтырыңыз.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingEight">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                Қосылу үшін қандай кабель қажет? Өзімдікін қолдана аламын ба?
+                            </button>
+                        </h2>
+                        <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Егер сізде алдыңғы провайдерден қолайлы кабель болса, біздің мамандар оны қызметті қосу үшін пайдалана алады. Сізге қосымша жабдық сатып алудың қажеті жоқ, себебі бізде барлық қажеттілік бар. Мастер сіздің пәтеріңізге кабельді қосымша ұзындықпен тартады, әсіресе компьютеріңіз немесе Wi-Fi-роутеріңіз кіреберістен алыс орналасқан болса. Қосылудың барлық егжей-тегжейін білу үшін сайтта байланыс деректеріңізді қалдырыңыз, біздің кеңесшіміз сізбен байланысып, "Қазақтелеком" провайдерінен үй интернетін қосу ерекшеліктері туралы айтып береді.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Қосылу үшін қандай құжаттар қажет?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Қазақтелеком қызметтерін қосу үшін, әдетте, ҚР азаматының **жеке куәлігі (паспорт)** қажет. Кейбір жағдайларда қосымша құжаттар талап етілуі мүмкін, бұл туралы біздің маман сізге алдын ала хабарлайды.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Жеке үйде қызметтерді қосуға бола ма?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Иә, біз интернет және теледидар қосу қызметтерін **GPON** технологиясы бойынша тек пәтерлерде ғана емес, сонымен қатар **жеке үйлерде** де ұсынамыз. Қосылу мүмкіндігі сіздің мекенжайыңыздағы техникалық мүмкіндікке байланысты. Өтінім қалдырыңыз, біз сіздің мекенжайыңызды тексереміз!
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingSix">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                Үйімнің "Қазақтелеком" желісіне қосылуын қалай тексеруге болады?
+                            </button>
+                        </h2>
+                        <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Үйіңіздің "Қазақтелекомға" қосылғанын білу өте оңай:
+                                <ul>
+                                    <li>Провайдерден қолайлы тарифтік жоспарды таңдаңыз.</li>
+                                    <li>Үй интернетін қосуға өтінімді толтырыңыз.</li>
+                                    <li>Егер сізде тарифті таңдау бойынша сұрақтар туындаса, кері қоңырау үшін нөміріңізді қалдырыңыз немесе көрсетілген телефон нөмірі арқылы бізбен байланысыңыз.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                Менің мекенжайым бойынша қандай тарифтер қолжетімді екенін қалай білуге болады?
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Дәл сіздің мекенжайыңыз бойынша қолжетімді тарифтердің нақты тізімін білу үшін, **сайтта өтінім қалдырыңыз** немесе біздің маманмен телефон арқылы байланысыңыз. Біз техникалық мүмкіндікті тексереміз және ең жақсы нұсқаларды ұсынамыз.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                Қай тарифтік жоспар ең тиімді болып табылады?
+                            </button>
+                        </h2>
+                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Ең үнемді тарифтік жоспар "Үй" деп саналады. "Қазақтелеком" қызметтердің жоғары сапасын қамтамасыз етеді және әртүрлі тарифтік опцияларды ұсынады. Тариф құны Wi-Fi-роутер немесе теледидар приставкасының болуын қоса алғанда, бірнеше факторға байланысты өзгеруі мүмкін. Ең тиімді шарттарды ұсына алатын акцияларды бақылауды ұсынамыз. "Қазақтелекомнан" ағымдағы тиімді ұсыныстарды білу үшін сайтта телефон нөміріңізді қалдыра аласыз.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingMegaline">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMegaline" aria-expanded="false" aria-controls="collapseMegaline">
+                                Мегалайн үй интернетіне арналған қандай тарифтер бар және оны қалай қосуға болады?
+                            </button>
+                        </h2>
+                        <div id="collapseMegaline" class="accordion-collapse collapse" aria-labelledby="headingMegaline" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Мыс желісі арқылы қызметтерді қосу мүмкіндігі бар үйлерде Shanuyqau желісі бойынша тарифтер немесе тек интернет Стартовый тарифі ұсынылады. Өтінімді сайттағы форма немес ЖИ-ассистентпен жібере аласыз.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwelve">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+                                Бірнеше құрылғыны интернетке қосуға бола ма?
+                            </button>
+                        </h2>
+                        <div id="collapseTwelve" class="accordion-collapse collapse" aria-labelledby="headingTwelve" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Үй интернетін бірнеше құрылғымен пайдалану үшін Wi-Fi-роутер қажет. Бұл құрылғы сіздің пәтеріңізде сымсыз желі құрады, бұл қосымша компьютерлерді, ноутбуктерді, смартфондарды, планшеттерді және тағы басқаларды интернетке қосуға мүмкіндік береді.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThirteen">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen">
+                                "Интернет + Теледидар" біріктірілген тарифінің артықшылықтары қандай?
+                            </button>
+                        </h2>
+                        <div id="collapseThirteen" class="accordion-collapse collapse" aria-labelledby="headingThirteen" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                "Қазақтелекомнан" "Үй интернеті + Теледидар" тарифін қосу телекоммуникациялық қызметтерден қосымша үнемдеуге мүмкіндік береді. Бір уақытта қаншалықты көп қызмет қоссаңыз, сіз үшін соғұрлым тиімді болады. Сайтта байланыс деректеріңізді қалдырыңыз, біздің менеджер сізбен байланысып, "Үй интернеті + ТВ" қызметтері үшін ең тиімді тарифті таңдауға көмектеседі.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingNine">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                                Неліктен "Қазақтелеком" таңдаулы интернет-провайдер болып табылады?
+                            </button>
+                        </h2>
+                        <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                "Қазақтелеком" — Қазақстанның көптеген қалаларында, соның ішінде Астана, Алматы, Шымкент, Абай, Ақмола, Ақтөбе, Алматы, Атырау, Шығыс Қазақстан, Жамбыл, Жетісу, Батыс Қазақстан, Қарағанды, Қостанай, Қызылорда, Маңғыстау, Павлодар, Солтүстік Қазақстан, Түркістан және Ұлытау облыстарында қызмет көрсететін жоғары жылдамдықты үй интернетінің жетекші провайдері. Интернет жылдамдығы 1024 Мбит/с-қа жетуі мүмкін. Сонымен қатар, теледидар бағдарламалары мен фильмдерді көру үшін TV+ теледидарын қоса аласыз. Провайдер мүмкіндіктері туралы көбірек білу үшін біздің сайтта байланыс деректеріңізді қалдырыңыз, кері қоңырауға арналған форманы толтырыңыз немесе көрсетілген нөмірге қоңырау шалыңыз.
+
+                                "Қазақтелекомның" артықшылықтары шектеусіз жоғары жылдамдықты үй интернетін қамтиды. Фильмдерді жүктеу, онлайн-ойындар ойнау және файлдарды тасымалдау сияқты үлкен өткізу қабілетін қажет ететін пайдаланушылар үшін жоғары жылдамдықты тарифтік жоспарлар қолжетімді. Бұдан басқа, провайдер жалға заманауи жабдықты, сондай-ақ клиенттердің қажеттіліктерін қанағаттандыратын әртүрлі қосымша қызметтер мен қосымшаларды ұсынады, оларды ең ірі аймақтық телекоммуникациялық компания ұсынады.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingPayment">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePayment" aria-expanded="false" aria-controls="collapsePayment">
+                                Қазақтелеком провайдерінің қызметтерін қай жерде төлеуге болады
+                            </button>
+                        </h2>
+                        <div id="collapsePayment" class="accordion-collapse collapse" aria-labelledby="headingPayment" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Қазақтелеком қызметтерін Жеке шот нөмірі бойынша (келісімшартта көрсетілген) төлеуге болады:
+                                <ul>
+                                    <li>telecom.kz Мобильді қосымшасында</li>
+                                    <li>www.telecom.kz сайтында</li>
+                                    <li>төлем терминалдарында</li>
+                                    <li>kaspi, halyk және т.б. банктік қосымшаларда</li>
+                                    <li>"Қазпошта" АҚ бөлімшелерінде</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <hr class="my-6">
+
+            <section id="contacts" class="section-spacing">
+                <h2 class="text-center mb-4">Біздің байланыстар</h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <p class="lead text-center mb-4">Сұрақтарыңыз болса, бізге ыңғайлы жолмен хабарласыңыз:</p>
+                        <ul class="list-unstyled text-center fs-5">
+                            <li class="mb-3"><i class="bi bi-phone me-3"></i> Телефон: <a href="tel:+77780080160" class="text-decoration-none text-dark">+7 (778) 008-0160</a></li>
+                            <li class="mb-3"><i class="bi bi-envelope me-3"></i> Email: <a href="mailto:qasietbusiness@kazakhtelcom.kz" class="text-decoration-none text-dark">qasietbusiness@kazakhtelcom.kz</a></li>
+                        </ul>
+
+                        <div class="d-flex flex-column flex-md-row justify-content-center gap-3 mt-5">
+                            <a href="https://wa.me/77780080160" class="btn btn-success btn-lg flex-fill py-3" target="_blank" rel="noopener noreferrer">
+                                <i class="bi bi-whatsapp me-2"></i> WhatsApp-қа жазу
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+    <button id="openChatBtn" class="btn btn-primary btn-chat-toggler" title="Көмекшімен байланысу." aria-label="ЖИ көмекшісімен чатты ашу.">
+        <i class="bi bi-chat-dots-fill"></i>
+    </button>
+
+
+    <div class="chat-popup" id="aiAgentChat" aria-modal="true" role="dialog" aria-labelledby="chatHeader">
+        <div class="chat-header">
+            <h5 id="chatHeader">ЖИ-ассистентпен чат</h5>
+            <button type="button" class="btn-close btn-close-white" id="closeChatBtn" aria-label="Чатты жабу"></button>
+        </div>
+        <div class="chat-messages" id="chatWindow">
+            <div class="chat-messages" id="chatWindow">
+                <div id="chatTip" style="font-size: 0.7rem; color: #999; margin-bottom: 5px;">
+                    💬 Сіз кез келген сұрақ қоя аласыз немесе жай ғана сөйлесуді бастай аласыз
+                </div>
+            </div>
+
+        </div>
+        <div class="chat-footer">
+            <label for="userInput" class="visually-hidden">Сіздің хабарламаңыз</label>
+            <input type="text" class="form-control" id="userInput" placeholder="Хабарламаңызды енгізіңіз..." aria-label="Хабарламаңызды енгізіңіз">
+            <button class="btn btn-primary" type="button" id="sendMessageBtn" aria-label="Хабарлама жіберу">
+                <i class="bi bi-send-fill"></i>
+            </button>
+        </div>
+        <div class="chat-privacy text-center mt-1" style="font-size: 0.55rem; color: #999;">
+            Жалғастыра отырып, сіз келісесіз
+            <a href="ru/privacy" target="_blank" style="color: #999;">құпиялылық саясатымен</a>.
+        </div>
+    </div>
+
+    <div id="formToast" class="toast align-items-center text-white bg-success border-0 position-fixed bottom-0 end-0 m-4" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="5000" style="z-index: 2000;">
+        <div class="d-flex">
+            <div class="toast-body">
+                Рахмет! Сіздің өтініміңіз жіберілді.
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Жабу"></button>
+        </div>
+    </div>
+
+    <footer class="border-top footer text-muted mt-5 py-3">
+        <div class="container text-center">
+            &copy; @DateTime.Now.Year Qasiet - Қазақтелеком Ресми Дилері
+        </div>
+    </footer>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/inputmask@5.0.8/dist/inputmask.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+</body>
+</html>

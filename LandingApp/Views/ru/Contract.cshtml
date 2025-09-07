@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Публичный договор (оферта)";
+}
+
+<div class="container my-5">
+    <div class="mb-3">
+        <a asp-controller="Home" asp-action="Index" asp-route-culture="ru"
+           class="btn btn-primary rounded-pill d-inline-flex align-items-center custom-back-btn">
+            <i class="bi bi-arrow-left me-2"></i> На главную страницу
+        </a>
+    </div>
+
+    <h1 class="mb-4 text-center">@ViewData["Title"]</h1>
+
+    <div class="border rounded p-4 shadow-sm bg-light">
+        <p>
+            Настоящий документ является официальным предложением (публичной офертой) ИП "Qasiet" и ТОО «Kazakhtelecom» (далее – «Исполнитель») для физических и юридических лиц (далее – «Заказчик») на оказание услуг связи.
+        </p>
+        <p>
+            Ознакомиться с полным текстом договора вы можете, перейдя по ссылке ниже.
+        </p>
+
+        <div class="text-center mt-4">
+            <a href="https://disk.yandex.ru/i/8LQjwfUguBBfoQ" target="_blank"
+               class="btn btn-primary btn-lg rounded-pill">
+                Скачать договор (PDF)
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .custom-back-btn {
+        background-color: #0d6efd; /* Синий фон кнопки */
+        color: #fff; /* Белый текст кнопки */
+        border: none;
+    }
+
+        .custom-back-btn i {
+            color: #0d6efd; /* Синяя стрелка */
+            background-color: #fff; /* Белый кружок за стрелкой */
+            border-radius: 50%;
+            padding: 4px; /* Отступ внутри кружка */
+        }
+
+        .custom-back-btn:hover {
+            background-color: #0b5ed7; /* Более тёмный синий при наведении */
+            color: #fff;
+        }
+
+            .custom-back-btn:hover i {
+                color: #fff; /* Стрелка становится белой при наведении */
+                background-color: #0b5ed7;
+            }
+</style>
