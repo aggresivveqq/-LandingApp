@@ -37,6 +37,7 @@ LandingApp/
 ├─ Migrations/        # EF Core migrations
 ├─ Models/            # Data models (leads, tariffs, chat)
 ├─ Repository/        # Data repositories
+├─ Scripts/           # Additional scripts 
 ├─ Services/          # Business logic and integrations
 ├─ Views/             # Razor Pages frontend
 ├─ wwwroot/           # Static files (JS, CSS, images)
