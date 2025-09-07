@@ -78,6 +78,8 @@ Tariff section
 Other sections
 <img width="720" height="823" alt="image" src="https://github.com/user-attachments/assets/a6a1988b-4900-47c1-8cfe-a8ea29168486" />
 <img width="583" height="825" alt="image" src="https://github.com/user-attachments/assets/8b4b498b-591a-4344-a0f3-1ee850fe0d2d" />
+
+
 Aggreement page
 <img width="1908" height="689" alt="image" src="https://github.com/user-attachments/assets/17186731-e92b-4d4e-be28-66a405365271" />
 Privacy page
