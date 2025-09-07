@@ -1,10 +1,8 @@
 #  LandingApp
 
-LandingApp is a multifunctional landing page built with **C# (ASP.NET Core)** and **JavaScript**.  
-The application is designed for **collecting leads**, integrating with **Google Sheets**, and displaying **tariff information** to users.
-Also application has chat with **AI** integration which is performed for page owner and collects leads with chat.
-Tariff section has multiple tariff with selection buttons.After pressing "connect" button,user will jump on lead section.
-This pro
+LandingApp is a multifunctional landing page built with C# (ASP.NET Core) for the backend and JavaScript for the frontend.
+
+The application is designed to efficiently collect leads, integrate seamlessly with Google Sheets,chatting with user via AI and collect leads and display tariff information to users.
 ---
 
 ##  Features
