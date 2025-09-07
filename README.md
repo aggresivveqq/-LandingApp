@@ -47,7 +47,7 @@ LandingApp/
 
 # Clone the repository
 ```bash
-git clone https://github.com/username/LandingApp.git
+git clone https://github.com/aggresivveqq/-LandingApp
 ```
 
 # Restore dependencies and build the project
