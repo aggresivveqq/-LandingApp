@@ -19,7 +19,7 @@ Tariff section has multiple tariff with selection buttons.After pressing "connec
 ## 🛠 Technologies
 | Backend        | Frontend               | Database        | Integrations          |
 | -------------- | --------------------- | ---------------| -------------------- |
-| C# ASP.NET Core| JavaScript, Bootstrap | MSSQL / EF Core| Google Sheets API, OpenRouter API, SinkLog |
+| C# ASP.NET Core| JavaScript, Bootstrap | MSSQL / EF Core| Google Sheets API, OpenRouter API, SeqLog |
 
 ---
 
