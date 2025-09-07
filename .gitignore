@@ -57,7 +57,7 @@ ScaffoldingReadMe.txt
 *.sln.docstates
 
 ## --- Configuration & Secrets ---
-appsettings.*.json      # добавь исключение, если хочешь хранить шаблон Development
+appsettings.*.json   t
 secrets.json
 .env
 *.pfx
