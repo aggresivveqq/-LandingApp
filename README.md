@@ -48,16 +48,16 @@ LandingApp/
 ## Page Review
 # RU
 <img width="1899" height="892" alt="image" src="https://github.com/user-attachments/assets/41464d7b-e121-402e-b6f7-3827bab5e12b" />
-## Chat
+Chat
 <img width="1899" height="788" alt="image" src="https://github.com/user-attachments/assets/733c1950-8a8d-4157-bf61-6e0c1021d800" />
-## Tariff Section
+Tariff Section
 <img width="1898" height="884" alt="image" src="https://github.com/user-attachments/assets/78db5f37-0a9c-4a4b-a28f-3b1906d0658d" />
-## Other Sections
+Other Sections
 <img width="916" height="821" alt="image" src="https://github.com/user-attachments/assets/0c1dca1f-3a3b-4b2a-bf56-005a9251bb33" />
 <img width="630" height="602" alt="image" src="https://github.com/user-attachments/assets/49c3d7bc-3517-42d1-bccc-3fff3f1dfbb8" />
-## Aggreement page
+Aggreement page
 <img width="1914" height="878" alt="image" src="https://github.com/user-attachments/assets/1d783e3c-0864-45ea-b671-784faf24dbce" />
-## Privacy page
+Privacy page
 <img width="1897" height="886" alt="image" src="https://github.com/user-attachments/assets/114b2bb7-9e5c-47f1-844a-882d6a8cee39" />
 
 ## Mobile version (RU)
@@ -71,16 +71,16 @@ LandingApp/
 
 # KZ
 <img width="1898" height="887" alt="image" src="https://github.com/user-attachments/assets/cfab9f54-b5d5-4756-832e-d1200157c77d" />
-## Chat
+Chat
 <img width="1896" height="793" alt="image" src="https://github.com/user-attachments/assets/88413e8e-eaff-468c-8931-2833afe30a3e" />
-## Tariff section
+Tariff section
 <img width="1902" height="887" alt="image" src="https://github.com/user-attachments/assets/ff8cd882-7db7-421b-85ee-b01c999fda6f" />
-## Other sections
+Other sections
 <img width="720" height="823" alt="image" src="https://github.com/user-attachments/assets/a6a1988b-4900-47c1-8cfe-a8ea29168486" />
 <img width="583" height="825" alt="image" src="https://github.com/user-attachments/assets/8b4b498b-591a-4344-a0f3-1ee850fe0d2d" />
-## Aggreement page
+Aggreement page
 <img width="1908" height="689" alt="image" src="https://github.com/user-attachments/assets/17186731-e92b-4d4e-be28-66a405365271" />
-## Privacy page
+Privacy page
 <img width="1898" height="891" alt="image" src="https://github.com/user-attachments/assets/5760ff72-b594-450b-991e-37cc05d4f7fe" />
 
 
