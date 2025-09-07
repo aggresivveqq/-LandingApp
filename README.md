@@ -4,6 +4,7 @@ LandingApp is a multifunctional landing page built with **C# (ASP.NET Core)** an
 The application is designed for **collecting leads**, integrating with **Google Sheets**, and displaying **tariff information** to users.
 Also application has chat with **AI** integration which is performed for page owner and collects leads with chat.
 Tariff section has multiple tariff with selection buttons.After pressing "connect" button,user will jump on lead section.
+This pro
 ---
 
 ##  Features
@@ -92,4 +93,10 @@ http://localhost:PORT
 #### Developer: Chingiskhan Akhmetov
 #### GitHub: https://github.com/aggresivveqq
 
+## ⚠️ Project Status
+
+This project is **no longer maintained**.  
+No further updates or commits will be made.  
+Feel free to use the code as-is for personal or educational purposes.
 ### Btw this is my first overall project :D
+
