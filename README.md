@@ -91,3 +91,5 @@ http://localhost:PORT
 
 #### Developer: Chingiskhan Akhmetov
 #### GitHub: https://github.com/aggresivveqq
+
+### Btw this is my first overall project :D
