@@ -90,7 +90,7 @@ http://localhost:PORT
 
 #### Developer: Chingiskhan Akhmetov
 #### GitHub: https://github.com/aggresivveqq
-
+#### Telegram: https://t.me/ezzz1y
 ## ⚠️ Project Status
 
 This project is **no longer maintained**.  
