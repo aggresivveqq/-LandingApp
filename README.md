@@ -8,12 +8,12 @@ Tariff section has multiple tariff with selection buttons.After pressing "connec
 
 ##  Features
 - Lead collection - Users can submit their information through forms or via the integrated chat  
-- Google Sheets export - The landing page includes a smart chat system that interacts with visitors, collects leads, and provides an engaging experience.
 - Tariff display - Multiple tariff plans are displayed. Users can choose a plan, and pressing the "Connect" button will automatically scroll them to the lead submission section.
 - Google Sheets Export – Leads collected via forms or chat are exported directly to Google Sheets for easy tracking and analysis
-- Chat with AI integration and forms  
+- AI Chat Integration – The landing page includes a smart chat system that interacts with visitors, collects leads, and provides an engaging experience
 - Multilanguage support (RU/KZ)  - Supports Russian and Kazakh languages, ensuring accessibility for a wider audience.
 - Responsive Design – Fully responsive layout using Bootstrap, optimized for both desktop and mobile devices
+- SEO Optimized – The landing page has structured HTML, meta tags, and optimized content to improve search engine visibility.
 ---
 
 ## 🛠 Technologies
